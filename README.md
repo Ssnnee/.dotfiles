@@ -1,7 +1,7 @@
 # This is my i3 config
 
 ## Note
-This i3 config are inspired  by [this](https://raw.githubusercontent.com/Vallen217/dotfiles) .
+This i3 config are inspired  by [this](https://githubusercontent.com/Vallen217/dotfiles) .
 
 
 ## Software Stack Configuration
