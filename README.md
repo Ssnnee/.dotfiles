@@ -19,7 +19,7 @@ And I use it on a PC. So it may be small on a larger screen.
 - **Code Editors**: Vim, [Visual Studio Code ](https://code.visualstudio.com/)
 - **Browser**: [Brave](https://brave.com/)
 - **Application launcher:**: [Rofi](https://github.com/davatorium/rofi)
-- **Compositor:**: [Picom](https://github.com/yshui/picom)
+- **Compositor:**: [Picom of pijulius](https://github.com/pijulius/picom)
 - **File Manager**: [Ranger](https://github.com/ranger/ranger)
 - **Notifications**: [dunst](https://github.com/dunst-project/dunst)
 - **Font**: [ShureTechMono Nerd Font](https://www.nerdfonts.com/font-downloads)
