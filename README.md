@@ -1,6 +1,4 @@
 # This is my i3 config
-/home/sne/Documents/i3_config/screenshot/Sun 10 Sep 21:51:06 WAT 2023.png
-
 ### Screenshot
 ![alt text](/screenshot/srshot1.png)
 ![alt text](/screenshot/srshot5.png)
