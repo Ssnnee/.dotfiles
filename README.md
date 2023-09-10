@@ -1,12 +1,12 @@
 # This is my i3 config
-
+/home/sne/Documents/i3_config/screenshot/Sun 10 Sep 21:51:06 WAT 2023.png
 
 ### Screenshot
-![alt text](/screenshot/"Sun 10 Sep 21:39:29 WAT 2023")
-![alt text](/screenshot/"Sun 10 Sep 21:43:35 WAT 2023")
-![alt text](/screenshot/"Sun 10 Sep 21:45:41 WAT 2023")
-![alt text](/screenshot/"Sun 10 Sep 21:48:29 WAT 2023")
-![alt text](/screenshot/"Sun 10 Sep 21:51:06 WAT 2023")
+![alt text](/screenshot/srshot1.png)
+![alt text](/screenshot/srshot2.png)
+![alt text](/screenshot/srshot3.png)
+![alt text](/screenshot/srshot4.png)
+![alt text](/screenshot/srshot5.png)
 
 ## Note
 This i3 config is inspired  by [this](https://github.com/Vallen217/dotfiles) .
