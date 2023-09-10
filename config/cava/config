@@ -172,8 +172,8 @@ alacritty_sync = 1
 ; foreground = default
 
 # SDL and sdl_glsl only support hex code colors, these are the default:
-background = '#12121f'
-foreground = '#d4d7ff'
+background = '#001122' 
+foreground = '#8BADC1'
 
 
 # Gradient mode, only hex defined colors are supported,

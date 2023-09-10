@@ -1,7 +1,16 @@
 # This is my i3 config
 
+
+### Screenshot
+![alt text](/screenshot/"Sun 10 Sep 21:39:29 WAT 2023")
+![alt text](/screenshot/"Sun 10 Sep 21:43:35 WAT 2023")
+![alt text](/screenshot/"Sun 10 Sep 21:45:41 WAT 2023")
+![alt text](/screenshot/"Sun 10 Sep 21:48:29 WAT 2023")
+![alt text](/screenshot/"Sun 10 Sep 21:51:06 WAT 2023")
+
 ## Note
-This i3 config are inspired  by [this](https://raw.githubusercontent.com/Vallen217/dotfiles) .
+This i3 config is inspired  by [this](https://github.com/Vallen217/dotfiles) .
+And I use it on a PC. So it may be small on a larger screen.
 
 
 ## Software Stack Configuration
@@ -9,6 +18,10 @@ This i3 config are inspired  by [this](https://raw.githubusercontent.com/Vallen2
 - **Bar**: [polybar](https://github.com/polybar/polybar)
 - **Shell**: [fish](https://fishshell.com/)
 - **Terminal**: [kitty](https://sw.kovidgoyal.net/kitty/)
+- **Code Editors**: Vim, [Visual Studio Code ](https://code.visualstudio.com/)
+- **Browser**: [Brave](https://brave.com/)
+- **Application launcher:**: [Rofi](https://github.com/davatorium/rofi)
+- **Compositor:**: [Picom](https://github.com/yshui/picom)
 - **File Manager**: [Ranger](https://github.com/ranger/ranger)
 - **Notifications**: [dunst](https://github.com/dunst-project/dunst)
 - **Font**: [ShureTechMono Nerd Font](https://www.nerdfonts.com/font-downloads)

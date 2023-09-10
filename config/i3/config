@@ -1,9 +1,9 @@
 set $mod Mod4
 
 # gaps
-for_window [class=".*"] border pixel 2
-# gaps inner 13
-# gaps outer 6
+for_window [class=".*"] border pixel 0
+gaps inner 6
+#gaps outer 3
 smart_borders on
 
 
@@ -33,10 +33,10 @@ exec --no-startup-id ~/.config/i3/i3-natural-scrolling-and-tap/inverse-scroll.sh
 exec --no-startup-id ~/.config/i3/i3-natural-scrolling-and-tap/tap-to-click.sh 
 
 # Launch picom
-#exec_always --no-startup-id picom
+exec --no-startup-id picom
 
 # Wallpaper
-exec_always feh --bg-scale /home/sne/Downloads/lost-in-space_3.png
+exec_always feh --bg-scale /home/sne/Downloads/1313972.jpeg
 
 
 #volume in PulseAudio.
@@ -200,6 +200,4 @@ client.background       #12121F
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-  #status_command i3status
-}
+#bar {#status_command i3status}
