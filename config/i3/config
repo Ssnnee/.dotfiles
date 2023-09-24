@@ -7,12 +7,12 @@ gaps inner 6
 smart_borders on
 
 
-# Font 
+# Font
 font pango:monospace 8
 
 # autostart .desktop files using dex. See also
 exec --no-startup-id dex-autostart --autostart --environment i3
-# xss-lock 
+# xss-lock
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager
 exec --no-startup-id nm-applet
@@ -21,7 +21,7 @@ exec --no-startup-id nm-applet
 exec  "setxkbmap -layout fr,de"
 
 # Bar: polybar
-exec polybar primary-top
+#exec polybar primary-top
 
 # For cursor theme
 exec --no-startup-id xsetroot -cursor_name left_ptr
@@ -30,10 +30,10 @@ exec --no-startup-id xsetroot -cursor_name left_ptr
 exec --no-startup-id ~/.config/i3/i3-natural-scrolling-and-tap/inverse-scroll.sh
 
 # For the tap to click
-exec --no-startup-id ~/.config/i3/i3-natural-scrolling-and-tap/tap-to-click.sh 
+exec --no-startup-id ~/.config/i3/i3-natural-scrolling-and-tap/tap-to-click.sh
 
 # Launch picom
-exec --no-startup-id picom
+exec_always --no-startup-id picom
 
 # Wallpaper
 exec_always feh --bg-scale /home/sne/Downloads/1313972.jpeg
@@ -200,4 +200,19 @@ client.background       #12121F
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {#status_command i3status}
+
+bar {
+  colors {
+    background #000000
+    statusline #FFFFFF
+    separator  #666666
+
+    focused_workspace  #83CAFA #51A2DA #FFFFFF
+    active_workspace   #3C6EB4 #294172 #FFFFFF
+    inactive_workspace #8C8C8C #4C4C4C #888888
+    urgent_workspace   #EC69A0 #DB3279 #FFFFFF
+    binding_mode       #b691d3 #A07CBC #FFFFFF
+  }
+  status_command i3status
+}
+
