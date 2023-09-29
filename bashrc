@@ -40,4 +40,5 @@ alias d='cd ~/Documents'
 alias m='cd ~/Music'
 alias t='cd ~/Downloads'
 alias h='cd ~/'
+alias i='cd ~/.config/i3'
 
