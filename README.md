@@ -6,7 +6,7 @@ This i3 config is inspired  by [this](https://github.com/Vallen217/dotfiles) .
 ![alt text](/screenshot/srshot1.png)
 ![alt text](/screenshot/srshot5.png)
 ![alt text](/screenshot/srshot2.png)
-![alt text](/screenshot/scshot4.png)
+![alt text](/screenshot/srshot7.png)
 
 
 
