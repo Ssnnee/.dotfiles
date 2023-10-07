@@ -2,7 +2,7 @@ set $mod Mod4
 
 # gaps
 for_window [class=".*"] border pixel 2
-gaps inner 6
+#gaps inner 6
 #gaps outer 3
 smart_borders on
 
@@ -20,16 +20,16 @@ exec --no-startup-id nm-applet
 # Change the keyboad layout
 exec  "setxkbmap -layout fr,de"
 
+# Map caps locks to Escape
+#exec xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'"
+
 # Bar: polybar
 #exec polybar primary-top
 
 # For cursor theme
 exec --no-startup-id xsetroot -cursor_name left_ptr
 
-#For inverqing scroll
-exec --no-startup-id ~/.config/i3/i3-natural-scrolling-and-tap/inverse-scroll.sh
-
-# For the tap to click
+#For inverqing scroll exec --no-startup-id ~/.config/i3/i3-natural-scrolling-and-tap/inverse-scroll.sh # For the tap to click
 exec --no-startup-id ~/.config/i3/i3-natural-scrolling-and-tap/tap-to-click.sh
 
 # Launch picom
@@ -46,7 +46,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Speed up holding keys
-exec_always --no-startup-id xset r rate 300 50
+exec_always --no-startup-id xset r rate 250 50
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -64,10 +64,10 @@ bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
 bindsym $mod+Tab --no-startup-id exec "rofi -show window"
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -76,10 +76,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+colon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -88,7 +88,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+z split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -186,8 +186,6 @@ bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t ima
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
-
-
 # class                 border  bground text    indicator child_border
 client.focused          #83CAFA #51A2DA #FFFFFF #83CAFA   #51A2DA
 client.focused_inactive #8C8C8C #4C4C4C #FFFFFF #4C4C4C   #8C8C8C
@@ -196,8 +194,6 @@ client.urgent           #EC69A0 #DB3279 #FFFFFF #DB3279   #DB3279
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 client.background       #12121F
-
-
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -216,4 +212,3 @@ bar {
   }
   status_command i3status
 }
-
