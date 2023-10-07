@@ -173,7 +173,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
+# Force apps to open on a desire workspace
+assign [class="firefox"] $ws2
+assign [class="TelegramDesktop"] $ws4
+assign [class="discord"] $ws4
+assign [class="Brave-browser"] $ws5
 
 
 # Screenshots
