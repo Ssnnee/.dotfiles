@@ -1,0 +1,11 @@
+#aliases
+alias vim=nvim
+alias d='cd ~/Documents'
+alias m='cd ~/Music'
+alias t='cd ~/Downloads'
+alias h='cd ~/'
+alias i='cd ~/.config/i3'
+alias ..='cd ..'
+alias lf='/home/sne/go/bin/lf'
+alias v="vim ~/.config/nvim/"
+
