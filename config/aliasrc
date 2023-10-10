@@ -11,4 +11,4 @@ alias v="vim ~/.config/nvim/"
 alias c="cd ~/.config"
 alias cmatrix="cmatrix -C white"
 
-fd() { cd "$(du -sh ~/.coding/* | awk '{ print $2 }' | fzf)" && $EDITOR . }
+fd() { cd "$(du -sh ~/.coding/* ~/.config/* | awk '{ print $2 }' | fzf)" && $EDITOR . }
