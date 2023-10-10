@@ -1,6 +1,6 @@
 #aliases
 alias vim=nvim
-alias d='cd ~/Documents'
+alias d='cd ~/.coding/'
 alias m='cd ~/Music'
 alias t='cd ~/Downloads'
 alias h='cd ~/'
@@ -8,4 +8,7 @@ alias i='cd ~/.config/i3'
 alias ..='cd ..'
 alias lf='/home/sne/go/bin/lf'
 alias v="vim ~/.config/nvim/"
+alias c="cd ~/.config"
+alias cmatrix="cmatrix -C white"
 
+fd() { cd "$(du -sh ~/.coding/* | awk '{ print $2 }' | fzf)" && $EDITOR . }
