@@ -29,9 +29,12 @@ exec  "setxkbmap -layout fr,de"
 # For cursor theme
 exec --no-startup-id xsetroot -cursor_name left_ptr
 
+# Remap the caps to Escape
+exec --no-startup-id ~/.config/i3/caps_to_esc
+
 #For inverqing scroll exec --no-startup-id ~/.config/i3/i3-natural-scrolling-and-tap/inverse-scroll.sh # For the tap to click
 exec --no-startup-id ~/.config/i3/i3-natural-scrolling-and-tap/tap-to-click.sh
-
+exec --no-startup-id ~/.config/i3/i3-natural-scrolling-and-tap/inverse-scroll.sh
 # Launch picom
 exec_always --no-startup-id picom
 
