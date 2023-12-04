@@ -2,10 +2,6 @@
 
 ## Note
 This i3 config is inspired  by [this](https://github.com/Vallen217/dotfiles) .
-### Screenshot
-![alt text](/screenshot/srshot7.png)
-
-
 
 ## Software Stack Configuration
 - **Distro**: [Fedora i3](https://fedoraproject.org/spins/)
@@ -20,5 +16,31 @@ This i3 config is inspired  by [this](https://github.com/Vallen217/dotfiles) .
 - **Font**: [ShureTechMono Nerd Font](https://www.nerdfonts.com/font-downloads)
 - **Cursors**: [Catppuccin-Macchiato-Dark-Cursors](https://github.com/catppuccin/cursors)
 
+
+## Usage
+The script mostly install or copy auto copy the config of my i3 config.
+
+To use the script make sure to have bash install. Cause I do not know if it
+will work on dash or whatever.
+
+To auto copy your config file edit the copyconfig to feel your need and adjust
+the destination file path:
+
+```shell
+./copyconfig
+```
+
+To set the config:
+```shell
+./setup
+```
+
+For the neovim config, I have another repo for that:
+```
+https://github.com/Ssnnee/init.lua
+```
+
 ## Todos
--[ ] Write a script that auto-configure all
+- [x] Write a script that auto-configure all
+- [ ] Test if the script setup actually work
+- [ ] Switch the file manager from ranger(too slow) to nnn or lf

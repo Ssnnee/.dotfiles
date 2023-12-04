@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+# Check if an argument is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <md file>"
+    exit 1
+fi
+
+pandoc $1 | lynx -stdin
