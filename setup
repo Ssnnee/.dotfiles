@@ -1,0 +1,46 @@
+#!/bin/bash
+# This script sets up dotfiles and installs applications.
+
+# Installing apps for
+nvim="https://github.com/neovim/neovim.git"
+picom="https://github.com/pijulius/picom.git"
+
+app_repo_list=("$nvim" "$picom")
+app_repo_list_dnf=("cava" "sxiv" "dunst" "kitty" "neofetch" "qutebrowser" "rofi" "zathura")
+name=""
+
+# mkdir ~/.coding/
+
+for repo in "${app_repo_list[@]}"; do
+    # cd ~/.coding/
+    git clone "$repo"
+    if [ "$repo" = "$nvim" ]; then
+        name="nvim"
+    elif [ "$repo" = "$picom" ]; then
+        name="picom"
+    fi
+    (
+        cd "$name" || exit
+        make
+        sudo make clean install
+    )
+done
+
+# Install apps for dnf
+sudo dnf install "${app_repo_list_dnf[@]}"
+
+# Set configs
+# cd $(pwd)
+
+# ln -s * ~/.config/
+cp -r ./.config/ ~/.config/
+cp -r ./.zshrc ~/
+
+# Set zsh as default shell
+chsh -s "$(which zsh)"
+
+# Install fonts
+cp -r ./fonts/ /usr/share/fonts/
+
+# Install icons
+cp -r ./icons/ /usr/share/icons/
