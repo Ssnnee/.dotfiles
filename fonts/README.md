@@ -1,3 +1,2 @@
-### Location of the file
-
-/usr/share/fonts/ 
+### Location of the folder
+/usr/share/fonts/
