@@ -13,7 +13,7 @@ name=""
 
 for repo in "${app_repo_list[@]}"; do
     # cd ~/.coding/
-    git clone "$repo"
+    git clone --depth 1 "$repo"
     if [ "$repo" = "$nvim" ]; then
         name="nvim"
     elif [ "$repo" = "$picom" ]; then
