@@ -6,7 +6,7 @@ nvim="https://github.com/neovim/neovim.git"
 picom="https://github.com/pijulius/picom.git"
 
 app_repo_list=("$nvim" "$picom")
-app_repo_list_dnf=("cava" "sxiv" "dunst" "kitty" "neofetch" "qutebrowser" "rofi" "zathura")
+app_repo_list_dnf=("cava" "sxiv" "dunst" "kitty" "neofetch" "qutebrowser" "rofi" "zathura" "waybar")
 name=""
 
 # mkdir ~/.coding/
@@ -27,6 +27,7 @@ for repo in "${app_repo_list[@]}"; do
 done
 
 # Install apps for dnf
+sudo dnf copr enable alebastr/waybar
 sudo dnf install "${app_repo_list_dnf[@]}"
 
 # Set configs

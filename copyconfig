@@ -2,7 +2,7 @@
 # This script copy dotfiles to the repo location. In this case,
 # ~/.coding/.dotfiles
 
-app_list="cava dunst kitty nvim picom aliasrc neofetch qutebrowser rofi zathura scripts"
+app_list="cava dunst kitty nvim picom waybar sway aliasrc neofetch qutebrowser rofi zathura scripts"
 
 for app in $app_list; do
     cp -r ~/.config/"$app" ~/.coding/.dotfiles/.config/
