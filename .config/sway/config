@@ -6,7 +6,7 @@ set $down j
 set $up k
 set $right l
 
-set $term kitty
+set $term st
 
 # set $rof "rofi -modi drun,run -show drun"
 # set $menu rof  | dmenu_path | dmenu | xargs swaymsg exec --
@@ -20,9 +20,10 @@ input * {
         xkb_layout "fr"
 }
 input * xkb_options "caps:escape"
+input * tap enabled
 
 input type:keyboard {
-   repeat_delay 200
+   repeat_delay 160
    repeat_rate 70
 }
 
@@ -153,13 +154,18 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Force apps to open on a desire workspace
-assign [class="firefox"] workspace 2
-assign [class="TelegramDesktop"] workspace 4
-assign [class="discord"] workspace 4
-assign [class="Brave-browser"] workspace 5
-assign [class="Protonvpn-app"] workspace 9
-assign [class="qutebrowser"] workspace 2
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Screenshots
+bindsym Print exec grim ~/Pictures/$(date).png
+bindsym $mod+Print exec --no-startup-id grim -g "$(slurp)" ~/Pictures/$(date).png
+
+# Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id grim ~/Pictures/$(date).png | wl-copy
+bindsym Ctrl+$mod+Print exec --no-startup-id grim -g "$(slurp)" ~/Pictures/$(date).png | wl-copy
 
 bar {
     position bottom
@@ -177,4 +183,11 @@ bar {
     # status_command i3status
 }
 
-include /etc/sway/config.d/*
+exec swaymsg "workspace 1; exec st;"
+exec swaymsg "workspace 2; exec firefox;"
+# exec swaymsg "workspace 2; exec qutebrowser;"
+exec swaymsg "workspace 3; exec st;"
+exec swaymsg "workspace 4; exec flatpak run org.telegram.desktop;"
+exec swaymsg "workspace 9; exec protonvpn-app;"
+
+include /etc/sway/coinfig.d/*

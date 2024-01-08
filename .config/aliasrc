@@ -34,4 +34,4 @@ alias gs="git status"
 alias gbr="git branch"
 alias gdf="git diff"
 alias gdfc="git diff --cached"
-
+alias ta="tmux attach"

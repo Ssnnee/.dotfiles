@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
     "modules-center": ["sway/window"],
-    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock", "tray"],
     // Modules configuration
      "sway/workspaces": {
          "disable-scroll": true,
@@ -16,24 +16,15 @@
          "format": "{name}: {icon}",
          "format-icons": {
              "1": "",
-             "2": "",
-             "3": "",
-             "4": "",
+             "2": "",
+             "3": "",
+             "4": "",
              "5": "",
-             "urgent": "",
+             // "urgent": "",
              // "focused": "",
              "default": ""
          }
      },
-    // "keyboard-state": {
-        // "numlock": true,
-        // "capslock": true,
-        // "format": "{name} {icon}",
-        // "format-icons": {
-            // "locked": "",
-            // "unlocked": ""
-        // }
-    // },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -44,42 +35,9 @@
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 2,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
     "tray": {
-        "icon-size": 21,
-        "spacing": 10
+        "icon-size": 15,
+        "spacing": 8
     },
     "clock": {
         // "timezone": "America/New_York",
@@ -87,24 +45,11 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}% CPU",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
-    },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format": "{}% RAM"
     },
     "battery": {
         "states": {
@@ -125,32 +70,13 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
-    // "pulseaudio": {
-        // // "scroll-step": 1, // %, can be a float
-        // "format": "{volume}% {icon} {format_source}",
-        // "format-bluetooth": "{volume}% {icon} {format_source}",
-        // "format-bluetooth-muted": " {icon} {format_source}",
-        // "format-muted": " {format_source}",
-        // "format-source": "{volume}% ",
-        // "format-source-muted": "",
-        // "format-icons": {
-            // "headphone": "",
-            // "hands-free": "",
-            // "headset": "",
-            // "phone": "",
-            // "portable": "",
-            // "car": "",
-            // "default": ["", "", ""]
-        // },
-        // "on-click": "pavucontrol"
-    // },
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
