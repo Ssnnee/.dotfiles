@@ -1,8 +1,7 @@
 # This is my i3 config
 
 ## Note
-This i3 config is inspired  by [this](https://github.com/Vallen217/dotfiles) .
-
+This i3 and sway config
 ## Software Stack Configuration
 - **Distro**: [Fedora i3](https://fedoraproject.org/spins/)
 - **Shell**: [zsh](https://www.zsh.org/)
@@ -18,9 +17,9 @@ This i3 config is inspired  by [this](https://github.com/Vallen217/dotfiles) .
 
 
 ## Usage
-The script mostly install or copy auto copy the config of my i3 config.
+The script mostly installs or copy auto copy the config of my i3 config.
 
-To use the script make sure to have bash install. Cause I do not know if it
+To use the script make sure to have bash install. Because I do not know if it
 will work on dash or whatever.
 
 To auto copy your config file edit the copyconfig to feel your need and adjust
@@ -44,3 +43,9 @@ https://github.com/Ssnnee/init.lua
 - [x] Write a script that auto-configure all
 - [ ] Test if the script setup actually work
 - [ ] Switch the file manager from ranger(too slow) to nnn or lf
+```shell
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
