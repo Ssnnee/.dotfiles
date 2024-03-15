@@ -9,7 +9,7 @@ set $right l
 set $term st
 
 # set $rof "rofi -modi drun,run -show drun"
-# set $menu rof  | dmenu_path | dmenu | xargs swaymsg exec --
+set $menu rof  | dmenu_path | dmenu | xargs swaymsg exec --
 
 output * bg ~/.config/i3/wallpaper.jpg fill
 
@@ -183,11 +183,11 @@ bar {
     # status_command i3status
 }
 
-exec swaymsg "workspace 1; exec st;"
-exec swaymsg "workspace 2; exec firefox;"
-# exec swaymsg "workspace 2; exec qutebrowser;"
-exec swaymsg "workspace 3; exec st;"
-exec swaymsg "workspace 4; exec flatpak run org.telegram.desktop;"
-exec swaymsg "workspace 9; exec protonvpn-app;"
+ # exec swaymsg "workspace 1; exec st;"
+ # exec swaymsg "workspace 2; exec firefox;"
+ # exec swaymsg "workspace 2; exec qutebrowser;"
+ # exec swaymsg "workspace 3; exec st;"
+ # exec swaymsg "workspace 4; exec flatpak run org.telegram.desktop;"
+ # exec swaymsg "workspace 9; exec protonvpn-app;"
 
 include /etc/sway/coinfig.d/*
