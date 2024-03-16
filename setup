@@ -34,14 +34,14 @@ sudo dnf install "${app_repo_list_dnf[@]}"
 # cd $(pwd)
 
 # ln -s * ~/.config/
-cp -r ./.config/ ~/.config/
+cp -r ./.config/* ~/.config/
 cp -r ./.zshrc ~/
 
 # Set zsh as default shell
 chsh -s "$(which zsh)"
 
 # Install fonts
-cp -r ./fonts/ /usr/share/fonts/
+sudo cp -r ./fonts/ /usr/share/fonts/
 
 # Install icons
-cp -r ./icons/ /usr/share/icons/
+sudo cp -r ./icons/ /usr/share/icons/

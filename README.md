@@ -41,7 +41,7 @@ https://github.com/Ssnnee/init.lua
 
 ## Todos
 - [x] Write a script that auto-configure all
-- [ ] Test if the script setup actually work
+- [x] Test if the script setup actually work
 - [ ] Switch the file manager from ranger(too slow) to nnn or lf
 ```shell
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
