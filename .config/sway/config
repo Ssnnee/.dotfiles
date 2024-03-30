@@ -11,7 +11,7 @@ set $term st
 # set $rof "rofi -modi drun,run -show drun"
 set $menu rof  | dmenu_path | dmenu | xargs swaymsg exec --
 
-output * bg ~/.config/i3/wallpaper.jpg fill
+output * bg /home/sne/Pictures/wallpapers/Fantasy-Landscape.png fill
 
 default_border pixel 2
 
@@ -54,7 +54,7 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec "sway exit"
 # Move your focus around
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
@@ -167,27 +167,38 @@ bindsym $mod+Print exec --no-startup-id grim -g "$(slurp)" ~/Pictures/$(date).pn
 bindsym Ctrl+Print exec --no-startup-id grim ~/Pictures/$(date).png | wl-copy
 bindsym Ctrl+$mod+Print exec --no-startup-id grim -g "$(slurp)" ~/Pictures/$(date).png | wl-copy
 
+# Bind for opening specific app
+bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+p exec pcmanfm
+bindsym $mod+Shift+t exec "flatpak run org.telegram.desktop"
+bindsym $mod+Shift+b exec "flatpak run com.brave.Browser"
+
 bar {
-    position bottom
+    # position bottom
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    # colors {
+    #     statusline #ffffff
+    #     background #323232
+    #     inactive_workspace #32323200 #32323200 #5c5c5c
+    # }
     swaybar_command waybar
     # status_command i3status
 }
 
- # exec swaymsg "workspace 1; exec st;"
- # exec swaymsg "workspace 2; exec firefox;"
+exec swaymsg "workspace 1; exec st;"
+exec swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f -c 000000'
+# exec swaymsg "workspace 2; exec firefox;"
  # exec swaymsg "workspace 2; exec qutebrowser;"
- # exec swaymsg "workspace 3; exec st;"
- # exec swaymsg "workspace 4; exec flatpak run org.telegram.desktop;"
- # exec swaymsg "workspace 9; exec protonvpn-app;"
+# exec swaymsg "workspace 3; exec st;"
+# exec swaymsg "workspace 4; exec flatpak run org.telegram.desktop;"
+# exec swaymsg "workspace 9; exec protonvpn-app;"
 
 include /etc/sway/coinfig.d/*

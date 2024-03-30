@@ -10,7 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 # Plugins
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-fzf-history-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -32,6 +32,8 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
+
+# bindkey -s '^R' '~/.config/scripts/zsh-fzf-history\n'
 
 # Use crtl f to open tmux sessionizer
 bindkey -s '^f' '~/.config/scripts/fzf_and_vim\n'
