@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 //static char *font = "monospace:pixelsize=15:antialias=true:autohint=true";
-static char *font = "Fira Code iScript:pixelsize=15:antialias=true:autohint=true";
+static char *font = "Fira Code iScript:pixelsize=18:antialias=true:autohint=true";
 static char *font2[] = {
     "NotoColorEmoji:pixelsize=15:antialias=true:autohint=true",
     "Fira Code:pixelsize=15:antialias=true:autohint=true",
@@ -120,6 +120,7 @@ float alphaOffset = 0.0;
 float alphaUnfocus;
 
 /* Terminal colors (16 first used in escape sequence) */
+
 static const char *colorname[] = {
 	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
 	"#cc241d",
@@ -341,8 +342,8 @@ static Shortcut shortcuts[] = {
 	{ShiftMask, XK_Print, printscreen, {.i = 0}},
 	{XK_ANY_MOD, XK_Print, printsel, {.i = 0}},
 	{TERMMOD, XK_Prior, zoom, {.f = +1}},
-	{TERMMOD, XK_Next, zoom, {.f = -1}},
-	{TERMMOD, XK_Home, zoomreset, {.f = 0}},
+  {TERMMOD, XK_Next, zoom, {.f = -1}},
+  {TERMMOD, XK_Home, zoomreset, {.f = 0}},
 	{ControlMask | ShiftMask, XK_C, clipcopy, {.i = 0}},
 	{ControlMask | ShiftMask, XK_V, clippaste, {.i = 0}},
 	{MODKEY, XK_c, clipcopy, {.i = 0}},
