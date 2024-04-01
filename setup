@@ -27,8 +27,11 @@ for repo in "${app_repo_list[@]}"; do
 done
 
 # Install apps for dnf
-sudo dnf copr enable alebastr/waybar
-sudo dnf install "${app_repo_list_dnf[@]}"
+# sudo dnf copr enable alebastr/waybar
+# sudo dnf install "${app_repo_list_dnf[@]}"
+
+git clone https://github.com/maxwell-bland/i3-natural-scrolling-and-tap.git ~/.config/
+mv i3-natural-scrolling-and-tap natural-scrolling-and-tap
 
 # Set configs
 # cd $(pwd)
@@ -36,6 +39,8 @@ sudo dnf install "${app_repo_list_dnf[@]}"
 # ln -s * ~/.config/
 cp -r ./.config/* ~/.config/
 cp -r ./.zshrc ~/
+
+cp .tmux.conf ~/
 
 # Set zsh as default shell
 chsh -s "$(which zsh)"
