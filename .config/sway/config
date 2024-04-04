@@ -6,12 +6,13 @@ set $down j
 set $up k
 set $right l
 
-set $term st
+set $term kitty
 
 # set $rof "rofi -modi drun,run -show drun"
 set $menu rof  | dmenu_path | dmenu | xargs swaymsg exec --
 
 output * bg /home/sne/Pictures/wallpapers/Fantasy-Landscape.png fill
+#exec --no-startup-id nitrogen --restore
 
 default_border pixel 2
 

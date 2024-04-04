@@ -34,32 +34,33 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 # bindkey -s '^R' '~/.config/scripts/zsh-fzf-history\n'
+# bindkey -s '^R' history-incremental-search-backward
 
 # Use crtl f to open tmux sessionizer
 bindkey -s '^f' '~/.config/scripts/fzf_and_vim\n'
 
 
 # Change cursor shape for different vi modes.
-# function zle-keymap-select {
-#   if [[ ${KEYMAP} == vicmd ]] ||
-#      [[ $1 = 'block' ]]; then
-#     echo -ne '\e[1 q'
-#   elif [[ ${KEYMAP} == main ]] ||
-#        [[ ${KEYMAP} == viins ]] ||
-#        [[ ${KEYMAP} = '' ]] ||
-#        [[ $1 = 'beam' ]]; then
-#     echo -ne '\e[5 q'
-#   fi
-# }
-#
-# zle -N zle-keymap-select
-# zle-line-init() {
-#     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-#     echo -ne "\e[5 q"
-# }
-# zle -N zle-line-init
-# echo -ne '\e[5 q' # Use beam shape cursor on startup.
-# preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
@@ -86,6 +87,10 @@ esac
 
 # bun completions
 [ -s "/home/sne/.bun/_bun" ] && source "/home/sne/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
