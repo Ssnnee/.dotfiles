@@ -5,6 +5,8 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="/usr/bin/nvim"
+
 
 # Theme
 ZSH_THEME="robbyrussell"
@@ -95,3 +97,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Created by `pipx` on 2024-04-11 11:11:18
+export PATH="$PATH:/home/sne/.local/bin"
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+eval "$(tmuxifier init -)"

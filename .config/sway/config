@@ -1,4 +1,4 @@
-# Logo key. Use Mod1 for Alt.
+# Logo key. Use Mod1 for Alt. nmtui
 set $mod Mod4
 
 set $left h
@@ -6,13 +6,11 @@ set $down j
 set $up k
 set $right l
 
-set $term kitty
-
 # set $rof "rofi -modi drun,run -show drun"
 set $menu rof  | dmenu_path | dmenu | xargs swaymsg exec --
 
-output * bg /home/sne/Pictures/wallpapers/Fantasy-Landscape.png fill
-#exec --no-startup-id nitrogen --restore
+output * bg /home/sne/Pictures/wallpapers/5120x2880.jpg fill
+
 
 default_border pixel 2
 
@@ -35,14 +33,15 @@ exec --no-startup-id nm-applet
 # Passmenu
 bindsym $mod+p exec passmenu
     # Start a terminal
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec st
 
 # Kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 
 # Start your launcher
-bindsym $mod+d exec "rofi -modi drun,run -show drun"
+# bindsym $mod+d exec "rofi -modi drun,run -show drun"
+bindsym $mod+d exec fuzzel
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -160,6 +159,11 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+# Brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id "brillo -q -U 5"
+bindsym XF86MonBrightnessUp exec --no-startup-id "brillo -q -A 5"
+
+
 # Screenshots
 bindsym Print exec grim ~/Pictures/$(date).png
 bindsym $mod+Print exec --no-startup-id grim -g "$(slurp)" ~/Pictures/$(date).png
@@ -171,8 +175,8 @@ bindsym Ctrl+$mod+Print exec --no-startup-id grim -g "$(slurp)" ~/Pictures/$(dat
 # Bind for opening specific app
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+p exec pcmanfm
-bindsym $mod+Shift+t exec "flatpak run org.telegram.desktop"
-bindsym $mod+Shift+b exec "flatpak run com.brave.Browser"
+bindsym $mod+Shift+t exec telegram-desktop
+bindsym $mod+Shift+b exec brave
 
 bar {
     # position bottom
@@ -180,14 +184,17 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    status_command while ~/.config/sway/statusInfo ; do sleep 1; done
 
     # colors {
     #     statusline #ffffff
     #     background #323232
     #     inactive_workspace #32323200 #32323200 #5c5c5c
     # }
-    swaybar_command waybar
-    # status_command i3status
+    # swaybar_command waybar
+    swaybar_command swaybar
+    # status_command while ./ramInfo.sh ; do sleep 1; done
+
 }
 
 exec swaymsg "workspace 1; exec st;"
