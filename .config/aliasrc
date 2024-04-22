@@ -6,6 +6,7 @@ alias d='cd ~/.coding/'
 alias m='cd ~/Music'
 alias t='cd ~/Downloads'
 alias h='cd ~/'
+alias cat='bat'
 alias i='nvim ~/.config/i3/config'
 alias sw='nvim ~/.config/sway/config'
 alias s='cd ~/.config/scripts/'
@@ -21,7 +22,7 @@ alias y='yay -S'
 alias Y='yay -S'
 alias R='sudo pacman -Rns'
 alias xfce4-terminal='xfce4-terminal --hide-menubar --hide-scrollbar'
-fd() {cd "find ~/.coding/ ~/.coding/ALX/  ~/.ecole/  -mindepth 1 -maxdepth 1 -type d | fzf)" ; $EDITOR .}
+# fd() {cd "find ~/.coding/ ~/.coding/ALX/  ~/.ecole/  -mindepth 1 -maxdepth 1 -type d | fzf)" ; $EDITOR .}
 alias install="sudo dnf install"
 alias search="pacman -Ss"
 alias upgrade="sudo pacman -Syu"

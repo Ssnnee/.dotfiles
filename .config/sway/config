@@ -1,3 +1,4 @@
+include colorscheme
 # Logo key. Use Mod1 for Alt. nmtui
 set $mod Mod4
 
@@ -165,12 +166,12 @@ bindsym XF86MonBrightnessUp exec --no-startup-id "brillo -q -A 5"
 
 
 # Screenshots
-bindsym Print exec grim ~/Pictures/$(date).png
-bindsym $mod+Print exec --no-startup-id grim -g "$(slurp)" ~/Pictures/$(date).png
+bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')
+bindsym $mod+Print exec grim $(xdg-user-dir PICTURES)/$(date +'%s_grim.png') -g "$(slurp)"
 
 # Clipboard Screenshots
-bindsym Ctrl+Print exec --no-startup-id grim ~/Pictures/$(date).png | wl-copy
-bindsym Ctrl+$mod+Print exec --no-startup-id grim -g "$(slurp)" ~/Pictures/$(date).png | wl-copy
+bindsym Ctrl+Print exec grim - | wl-copy
+bindsym Ctrl+$mod+Print exec grim -g "$(slurp)" | wl-copy
 
 # Bind for opening specific app
 bindsym $mod+Shift+f exec firefox
@@ -184,7 +185,7 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-    status_command while ~/.config/sway/statusInfo ; do sleep 1; done
+    status_command while ~/.config/sway/statusInfo ; do sleep 5; done
 
     # colors {
     #     statusline #ffffff
@@ -194,6 +195,7 @@ bar {
     # swaybar_command waybar
     swaybar_command swaybar
     # status_command while ./ramInfo.sh ; do sleep 1; done
+    font UbuntuMono Nerd Font
 
 }
 

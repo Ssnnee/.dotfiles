@@ -13,3 +13,6 @@ cp ~/.zshrc ~/.coding/.dotfiles/
 
 # Copy tmux  config
 cp ~/.tmux.conf ~/.coding/.dotfiles/
+
+# cp pavman config
+cp /etc/pacman.conf ~/.coding/.dotfiles/
