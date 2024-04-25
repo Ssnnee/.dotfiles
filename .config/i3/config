@@ -2,8 +2,8 @@ set $mod Mod4
 
 # gaps
 for_window [class=".*"] border pixel 2
-#gaps inner 6
-#gaps outer 3
+gaps inner 6
+gaps outer 3
 smart_borders on
 
 
@@ -18,7 +18,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # picom
-exec  picom
+exec picom
 
 # Map caps locks to Escape
 #exec xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'"
@@ -40,18 +40,22 @@ exec --no-startup-id protonvpn-app
 
 
 # Wallpaper
-exec_always feh --bg-fill /home/sne/.config/i3/wallpaper.jpg
+# exec_always feh --bg-fill /home/sne/.config/i3/wallpaper.jpg
+exec --no-startup-id nitrogen --restore
 # Shortcut for openning apps
-bindsym $mod+Ctrl+f exec --no-startup-id firefox
-bindsym $mod+Ctrl+t exec --no-startup-id flatpak run org.telegram.desktop
-bindsym $mod+Ctrl+d exec --no-startup-id discord
-bindsym $mod+Ctrl+b exec --no-startup-id brave-browser
-bindsym $mod+Ctrl+e exec --no-startup-id code
-# bindsym $mod+Ctrl+o exec --no-startup-id kitty lf
-bindsym $mod+Ctrl+v exec --no-startup-id kitty nvim
+bindsym $mod+Shift+f exec --no-startup-id firefox
+bindsym $mod+Shift+t exec --no-startup-id telegram-desktop
+bindsym $mod+Shift+d exec --no-startup-id discord
+bindsym $mod+Shift+p exec --no-startup-id pcmanfm
+bindsym $mod+Shift+b exec --no-startup-id brave
+bindsym $mod+Ctrl+v exec --no-startup-id st nvim
 
 # Passmenu
 bindsym $mod+p exec --no-startup-id passmenu
+
+# Brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id "brillo -q -U 5"
+bindsym XF86MonBrightnessUp exec --no-startup-id "brillo -q -A 5"
 
 #volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -165,7 +169,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3 exit"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -218,6 +222,7 @@ client.background       #12121F
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
 
 bar {
   colors {
