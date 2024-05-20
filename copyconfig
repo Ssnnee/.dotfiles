@@ -16,3 +16,6 @@ cp ~/.tmux.conf ~/.coding/.dotfiles/
 
 # cp pavman config
 cp /etc/pacman.conf ~/.coding/.dotfiles/
+
+# Copy suckless terminal config
+cp -r ~/.coding/st/config.h ~/.coding/.dotfiles/st/

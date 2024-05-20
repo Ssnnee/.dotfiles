@@ -1,4 +1,4 @@
-set $mod Mod4
+qset $mod Mod4
 
 # gaps
 for_window [class=".*"] border pixel 2
@@ -19,8 +19,6 @@ exec --no-startup-id nm-applet
 
 # picom
 exec picom
-
-# exec mechvibes &
 
 # Map caps locks to Escape
 #exec xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'"
@@ -48,12 +46,12 @@ exec --no-startup-id nitrogen --restore
 bindsym $mod+Ctrl+f exec --no-startup-id firefox
 bindsym $mod+Ctrl+t exec --no-startup-id telegram-desktop
 bindsym $mod+Ctrl+d exec --no-startup-id discord
-bindsym $mod+Ctrl+p exec --no-startup-id "st lf"
+bindsym $mod+Ctrl+p exec --no-startup-id pcmanfm
 bindsym $mod+Ctrl+b exec --no-startup-id brave
 bindsym $mod+Ctrl+v exec --no-startup-id st nvim
 
 # Passmenu
-# bindsym $mod+p exec --no-startup-id passmenu
+bindsym $mod+p exec --no-startup-id passmenu
 
 # Brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id "brillo -q -U 5"
@@ -92,10 +90,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # For optmot layout
-bindsym $mod+p focus left
-bindsym $mod+t focus down
-bindsym $mod+s focus up
-bindsym $mod+r focus right
+bindsym $mod+t focus left
+bindsym $mod+s focus down
+bindsym $mod+r focus up
+bindsym $mod+n focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -109,10 +107,10 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-bindsym $mod+Shift+p move left
-bindsym $mod+Shift+t move down
-bindsym $mod+Shift+s move up
-bindsym $mod+Shift+r move right
+bindsym $mod+Shift+t move left
+bindsym $mod+Shift+s move down
+bindsym $mod+Shift+r move up
+bindsym $mod+Shift+n move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -181,7 +179,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Ctrl+r restart
+bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3 exit"
 
@@ -191,12 +189,6 @@ mode "resize" {
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same for optmot layout
-        bindsym p resize shrink width 10 px or 10 ppt
-        bindsym t resize grow height 10 px or 10 ppt
-        bindsym s resize shrink height 10 px or 10 ppt
-        bindsym r resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt

@@ -27,12 +27,16 @@ input type:keyboard {
    repeat_rate 70
 }
 
+exec_always {
+  gsettings set org.gnome.desktop.interface gtk-theme "Breeze-Dark"
+  gsettings set org.gnome.desktop.interface icon-theme "breeze-dark"
+}
 # NetworkManager
 exec --no-startup-id nm-applet
 # exec nm-applet
 
 # Passmenu
-bindsym $mod+p exec passmenu
+# bindsym $mod+p exec passmenu
     # Start a terminal
 bindsym $mod+Return exec st
 
@@ -54,6 +58,8 @@ floating_modifier $mod normal
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 
+bindsym $mod+Ctrl+r restart
+
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec "sway exit"
 # Move your focus around
@@ -61,6 +67,13 @@ bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
+
+# For optmot layout
+bindsym $mod+p focus left
+bindsym $mod+t focus down
+bindsym $mod+s focus up
+bindsym $mod+r focus right
+
 # Or use $mod+[up|down|left|right]
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -72,6 +85,12 @@ bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
+
+bindsym $mod+Shift+p move left
+bindsym $mod+Shift+t move down
+bindsym $mod+Shift+s move up
+bindsym $mod+Shift+r move right
+
 # Ditto, with arrow keys
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -109,7 +128,7 @@ bindsym $mod+b splith
 bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
-bindsym $mod+s layout stacking
+# bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -137,23 +156,33 @@ bindsym $mod+Ctrl+minus scratchpad show
 #
 # Resizing containers:
 #
+# resize window (you can also use the mouse for that)
 mode "resize" {
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
 
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+        # same for optmot layout
+        bindsym p resize shrink width 10 px or 10 ppt
+        bindsym t resize grow height 10 px or 10 ppt
+        bindsym s resize shrink height 10 px or 10 ppt
+        bindsym r resize grow width 10 px or 10 ppt
 
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
 }
-bindsym $mod+r mode "resize"
+
+# bindsym $mod+b mode "resize"
+
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
@@ -174,10 +203,13 @@ bindsym Ctrl+Print exec grim - | wl-copy
 bindsym Ctrl+$mod+Print exec grim -g "$(slurp)" | wl-copy
 
 # Bind for opening specific app
-bindsym $mod+Shift+f exec firefox
-bindsym $mod+Shift+p exec pcmanfm
-bindsym $mod+Shift+t exec telegram-desktop
-bindsym $mod+Shift+b exec brave
+bindsym $mod+Ctrl+f exec --no-startup-id firefox
+bindsym $mod+Ctrl+t exec --no-startup-id telegram-desktop
+bindsym $mod+Ctrl+d exec --no-startup-id discord
+bindsym $mod+Ctrl+p exec --no-startup-id pcmanfm
+bindsym $mod+Ctrl+b exec --no-startup-id brave
+bindsym $mod+Ctrl+v exec --no-startup-id st nvim
+
 
 bar {
     # position bottom
