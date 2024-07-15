@@ -1,4 +1,5 @@
 include colorscheme
+
 # Logo key. Use Mod1 for Alt. nmtui
 set $mod Mod4
 
@@ -24,13 +25,9 @@ input * tap enabled
 
 input type:keyboard {
    repeat_delay 160
-   repeat_rate 70
+   # repeat_rate 70
 }
 
-exec_always {
-  gsettings set org.gnome.desktop.interface gtk-theme "Breeze-Dark"
-  gsettings set org.gnome.desktop.interface icon-theme "breeze-dark"
-}
 # NetworkManager
 exec --no-startup-id nm-applet
 # exec nm-applet
@@ -224,8 +221,8 @@ bar {
     #     background #323232
     #     inactive_workspace #32323200 #32323200 #5c5c5c
     # }
-    # swaybar_command waybar
-    swaybar_command swaybar
+    swaybar_command waybar
+    # swaybar_command swaybar
     # status_command while ./ramInfo.sh ; do sleep 1; done
     font UbuntuMono Nerd Font
 

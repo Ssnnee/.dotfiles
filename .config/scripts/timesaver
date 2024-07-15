@@ -1,9 +1,11 @@
 #!/bin/env bash
 
 ~/.config/natural-scrolling-and-tap/tap-to-click.sh
-~/.config/natural-scrolling-and-tap/inverse-scroll.sh
+# ~/.config/natural-scrolling-and-tap/inverse-scroll.sh
 setxkbmap -layout fr,de
-#setxkbmap -layout fr -variant optimot_ansi_18 -option grp:alt_crt_toggle
-xset r rate 160 70
-xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-# picom > /dev/null &
+# setxkbmap -layout fr -variant optimot_ansi_18 -option grp:alt_crt_toggle
+xset r rate 160 80
+# xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+setxkbmap -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'
+# picom > /dev/null s&

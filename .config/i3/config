@@ -34,9 +34,6 @@ exec --no-startup-id xsetroot -cursor_name left_ptr
 # Timesaver
 exec timesaver
 
-# Launch picom
-# exec_always --no-startup-id picom
-
 # Launch protonvpn
 exec --no-startup-id protonvpn-app
 
@@ -48,7 +45,7 @@ exec --no-startup-id nitrogen --restore
 bindsym $mod+Ctrl+f exec --no-startup-id firefox
 bindsym $mod+Ctrl+t exec --no-startup-id telegram-desktop
 bindsym $mod+Ctrl+d exec --no-startup-id discord
-bindsym $mod+Ctrl+p exec --no-startup-id "st lf"
+bindsym $mod+Ctrl+p exec --no-startup-id "st yazi"
 bindsym $mod+Ctrl+b exec --no-startup-id brave
 bindsym $mod+Ctrl+v exec --no-startup-id st nvim
 

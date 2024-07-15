@@ -28,6 +28,7 @@ bindkey -s '^f' '~/.config/scripts/fzf_and_vim\n'
 
 eval "$(fzf --zsh)"
 
+
 # pnpm
 export PNPM_HOME="/home/sne/.local/share/pnpm"
 case ":$PATH:" in
