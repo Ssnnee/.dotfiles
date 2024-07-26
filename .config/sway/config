@@ -11,7 +11,7 @@ set $right l
 # set $rof "rofi -modi drun,run -show drun"
 set $menu rof  | dmenu_path | dmenu | xargs swaymsg exec --
 
-output * bg /home/sne/Pictures/wallpapers/5120x2880.jpg fill
+output * bg /home/sne/Pictures/wallpapers/wp.jpg fill
 
 
 default_border pixel 2
@@ -25,7 +25,7 @@ input * tap enabled
 
 input type:keyboard {
    repeat_delay 160
-   # repeat_rate 70
+   repeat_rate 70
 }
 
 # NetworkManager

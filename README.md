@@ -1,7 +1,11 @@
-# This is my i3 config
+# Dotfiles configuration
 
-## Note
-This i3 and sway config
+This is my personal configuration for my Linux setup. Currently, I am using
+awesome window manager with Artix so the repo is not up to date.
+
+## Screenshot
+![Screenshot](./screenshot/awesome.png)
+
 ## Software Stack Configuration
 - **Distro**: [Fedora i3](https://fedoraproject.org/spins/)
 - **Shell**: [zsh](https://www.zsh.org/)
