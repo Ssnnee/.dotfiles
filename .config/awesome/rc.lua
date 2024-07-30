@@ -116,7 +116,7 @@ do
       "nm-applet",
       "picom",
       "timesaver",
-      "nitrogen --restore",
+      -- "nitrogen --restore",
   }
 
   for _,i in pairs(cmds) do
@@ -345,6 +345,10 @@ globalkeys = gears.table.join(
     -- Menubar
     awful.key({ modkey }, "d", function() awful.spawn("rofi -modi drun,run -show drun") end,
               {description = "Open rofi", group = "launcher"}),
+
+    -- Passmenu
+    awful.key({ modkey }, "p", function() awful.spawn("passmenu") end,
+              {description = "Open passmenu", group = "launcher"}),
 
     -- Brightness
     awful.key({ }, "XF86MonBrightnessUp", function () awful.spawn("brillo -q -A 5") end,

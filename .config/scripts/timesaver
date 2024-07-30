@@ -9,3 +9,4 @@ xset r rate 160 80
 setxkbmap -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape'
 # picom > /dev/null s&
+nitrogen --restore
