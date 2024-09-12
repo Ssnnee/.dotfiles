@@ -1,4 +1,6 @@
 #!/bin/sh
+# This script installs the Optimot driver for Linux.
+# It from https://github.com/steevelefort/optimot-install
 
 VERSION=18
 INSTALLZIP=install_xkb.zip
