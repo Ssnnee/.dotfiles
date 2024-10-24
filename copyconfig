@@ -2,6 +2,7 @@
 # This script copy dotfiles to the repo location. In this case,
 # ~/.coding/.dotfiles
 
+repo_path=~/.coding/.dotfiles
 app_list="cava fuzzel yazi dunst kitty nvim picom waybar sway swaylock aliasrc neofetch  rofi zathura scripts hypr i3 awesome"
 
 for app in $app_list; do
@@ -9,13 +10,13 @@ for app in $app_list; do
 done
 
 # Copy zshrc
-cp ~/.zshrc ~/.coding/.dotfiles/
+cp ~/.zshrc repo_path
 
 # Copy tmux  config
-cp ~/.tmux.conf ~/.coding/.dotfiles/
+cp ~/.tmux.conf repo_path
 
-# cp pavman config
-cp /etc/pacman.conf ~/.coding/.dotfiles/
+# cp pacman config
+cp /etc/pacman.conf repo_path
 
 # Copy suckless terminal config
 cp -r ~/.coding/st/config.h ~/.coding/.dotfiles/st/
