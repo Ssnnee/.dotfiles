@@ -3,7 +3,7 @@
 # ~/.coding/.dotfiles
 
 repo_path=~/.coding/.dotfiles
-app_list="cava fuzzel yazi dunst kitty nvim picom waybar sway swaylock aliasrc neofetch  rofi zathura scripts hypr i3 awesome"
+app_list="cava fuzzel yazi dunst kitty picom waybar sway swaylock aliasrc neofetch  rofi zathura scripts hypr i3 awesome"
 
 for app in $app_list; do
     cp -r ~/.config/"$app" ~/.coding/.dotfiles/.config/
@@ -13,10 +13,10 @@ done
 cp ~/.zshrc repo_path
 
 # Copy tmux  config
-cp ~/.tmux.conf repo_path
+cp ~/.tmux.conf $repo_path
 
 # cp pacman config
-cp /etc/pacman.conf repo_path
+cp /etc/pacman.conf $repo_path
 
 # Copy suckless terminal config
-cp -r ~/.coding/st/config.h ~/.coding/.dotfiles/st/
+cp -r ~/.coding/st/config.h ~/.coding/.dotfiles/.config/st/
