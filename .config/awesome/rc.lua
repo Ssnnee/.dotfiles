@@ -116,6 +116,7 @@ do
       "nm-applet",
       "picom",
       "timesaver",
+      "mechvibes",
       -- "nitrogen --restore",
   }
 
@@ -211,7 +212,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "bottom", screen = s })
 
     -- Gaps
     beautiful.useless_gap = 5
@@ -389,6 +390,8 @@ clientkeys = gears.table.join(
         end,
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey,   }, "q",      function (c) c:kill()                         end,
+              {description = "close", group = "client"}),
+    awful.key({ modkey,   }, "a",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
