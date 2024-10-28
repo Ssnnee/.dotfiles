@@ -64,7 +64,17 @@
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
       "format-alt": "{:%Y-%m-%d}"
     },
-
+     "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "phone": [" ", " ", " ", " "],
+            "default": ["", "", "", ""]
+        },
+        "scroll-step": 10,
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
     "cpu": {
       "format": "{usage}% CPU",
       "tooltip": false
@@ -93,16 +103,16 @@
       "bat": "BAT2"
     },
     "network": {
-        "format": "{icon}",
-        "format-alt": "{ipaddr}/{cidr} {icon}",
-        "format-alt-click": "click-right",
-        "format-icons": {
-            "wifi": ["", "" ,""],
-            "ethernet": ["󰈀"],
-            "disconnected": [""]
-        },
-        "on-click": "termite -e nmtui",
-    "tooltip": false
+      "format": "{icon}",
+      "format-alt": "{ipaddr}/{cidr} {icon}",
+      "format-alt-click": "click-right",
+      "format-icons": {
+        "wifi": ["", "" ,""],
+        "ethernet": ["󰈀"],
+        "disconnected": [""]
+      },
+      "on-click": "termite -e nmtui",
+      "tooltip": false
     },
     "custom/media": {
       "format": "{icon} {}",
