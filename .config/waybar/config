@@ -3,14 +3,14 @@
     "height": 30,
     "spacing": 0,
     "modules-left": [
-      "custom/os_button",
-    "hyprland/workspaces",
-    "hyprland/mode",
-    "hyprland/scratchpad",
+    "custom/os_button",
+    "sway/workspaces",
+    "sway/mode",
+    "sway/scratchpad",
     "custom/media"
     ],
     "modules-center": [
-      "hyprland/window"
+      "sway/window"
     ],
     "modules-right": [
       "pulseaudio",
@@ -22,7 +22,7 @@
     "clock",
     "tray"
     ],
-    "hyprland/workspaces": {
+    "sway/workspaces": {
       "disable-scroll": true,
       "all-outputs": true,
       "warp-on-scroll": false,
@@ -38,10 +38,10 @@
         "default": ""
       }
     },
-    "hyprland/mode": {
+    "sway/mode": {
       "format": "<span style=\"italic\">{}</span>"
     },
-    "hyprland/scratchpad": {
+    "sway/scratchpad": {
       "format": "{icon} {count}",
       "show-empty": false,
       "format-icons": [
@@ -64,16 +64,16 @@
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
       "format-alt": "{:%Y-%m-%d}"
     },
-     "pulseaudio": {
-        "format": "{volume}% {icon}",
-        "format-muted": "",
-        "format-icons": {
-            "phone": [" ", " ", " ", " "],
-            "default": ["", "", "", ""]
-        },
-        "scroll-step": 10,
-        "on-click": "pavucontrol",
-        "tooltip": false
+    "pulseaudio": {
+      "format": "{volume}% {icon}",
+      "format-muted": "",
+      "format-icons": {
+        "phone": [" ", " ", " ", " "],
+        "default": ["", "", "", ""]
+      },
+      "scroll-step": 10,
+      "on-click": "pavucontrol",
+      "tooltip": false
     },
     "cpu": {
       "format": "{usage}% CPU",

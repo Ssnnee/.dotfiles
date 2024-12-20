@@ -2,7 +2,7 @@
 set $mod Mod4
 
 # gaps
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 1
 gaps inner 10
 gaps outer 3
 smart_borders on
@@ -16,7 +16,7 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 # xss-lock
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
-exec_always --no-startup-id xborders
+# exec_always --no-startup-id xborders
 
 # picom
 exec picom
@@ -187,21 +187,21 @@ bindsym $mod+Shift+e exec "i3 exit"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym l resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
-        bindsym h resize grow width 10 px or 10 ppt
+  bindsym l resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym j resize shrink height 10 px or 10 ppt
+    bindsym h resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym hight resize grow width 10 px or 10 ppt
+# same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym hight resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+# back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -274,14 +274,14 @@ client.background        $base
 bar {
   colors {
     background #000000
-    statusline #FFFFFF
-    separator  #666666
+      statusline #FFFFFF
+      separator  #666666
 
-    focused_workspace  $mantle $mauve $mantle
-    active_workspace   #3C6EB4 #294172 #FFFFFF
-    inactive_workspace $overlay0 $base $text
-    urgent_workspace   $peach    $peach  $mantle
-    binding_mode       #b691d3 #A07CBC #FFFFFF
+      focused_workspace  $mantle $mauve $mantle
+      active_workspace   #3C6EB4 #294172 #FFFFFF
+      inactive_workspace $overlay0 $base $text
+      urgent_workspace   $peach    $peach  $mantle
+      binding_mode       #b691d3 #A07CBC #FFFFFF
   }
   status_command i3status -c /home/$USER/.config/i3status/i3status.conf
 }

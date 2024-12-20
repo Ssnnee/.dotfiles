@@ -1,0 +1,21 @@
+freeop="$(free -h | grep Mem)"
+usedram="$(echo $freeop | awk '{ print $3 }')"
+totalram="$(echo $freeop | awk '{ print $2 }')"
+ramcolors=( $green $orange $red )
+ram="$usedram / $totalram"
+
+dfop="$(df -h / | grep /dev)"
+totaldisk="$(echo $dfop | awk '{ print $2 }')"
+useddisk="$(echo $dfop | awk '{ print $3 }')"
+disk="$useddisk / $totaldisk"
+
+date_info=$(date +'%Y-%m-%d %I:%M:%S %p')
+
+vol=$(amixer sget Master | awk -F"[][]" '/Left:/ { print $2 }')
+
+per=$(upower -i $(upower -e | grep '/battery') | awk '/percentage/ {print $2}')
+
+
+echo "Bat: $per | RAM: $ram | Disk: $disk | Vol: $vol | Sne Etape Ya Souka  | $date_info"
+
+

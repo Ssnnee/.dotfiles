@@ -2,6 +2,7 @@
 alias vim=nvim
 alias vc="vim ~/.config/nvim/"
 alias v="nvim"
+alias vi="nvim"
 alias d='cd ~/.coding/'
 alias m='cd ~/Music'
 alias t='cd ~/Downloads'
@@ -43,6 +44,7 @@ alias ta="tmux attach"
 alias tx="tmux"
 alias cs="cowsay"
 alias pn="pnpm"
+alias px="pnpx"
 alias code="flatpak run com.vscodium.codium"
 alias hy="vim ~/.config/hypr/hyprland.conf"
 alias yz="yazi"

@@ -22,8 +22,7 @@ I do use a lot of wm but my go to wm is i3. So this contains mostly i3 stuff
 > Should check, make some change before using
 
 ```shell
-./copyconfig
-./setup
+echo Hello
 ```
 
 For the neovim config, I have another repo for that:

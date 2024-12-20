@@ -1,3 +1,31 @@
+# #!/bin/bash
+#
+# if [[ $# -eq 1 ]]; then
+#     selected=$1
+# else
+#     selected=$(find ~/.coding/ ~/.coding/ALX/  ~/.ecole/  -mindepth 1 -maxdepth 1 -type d | fzf)
+# fi
+#
+# if [[ -z $selected ]]; then
+#     exit 0
+# fi
+#
+# selected_name=$(basename "$selected" | tr . _)
+# tmux_running=$(pgrep tmux)
+#
+# if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+#     tmux new-session -s $selected_name -c $selected
+#     tmux send-keys "vim" C-m
+#     exit 0
+# fi
+#
+# if ! tmux has-session -t=$selected_name 2> /dev/null; then
+#     tmux new-session -ds $selected_name -c $selected
+#     tmux send-keys -t $selected_name "vim" C-m
+# fi
+#
+# tmux switch-client -t $selected_name
+
 #!/usr//bin/env bash
 
 # this script is used to fuzzy search directories on certain path and open them

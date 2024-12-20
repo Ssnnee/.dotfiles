@@ -9,23 +9,23 @@ set $right l
 # set $rof "rofi -modi drun,run -show drun"
 set $menu rof  | dmenu_path | dmenu | xargs swaymsg exec --
 
-output * bg /home/sne/Pictures/wallpapers/5120x2880.jpg fill
+output * bg /home/sne/Pictures/wallpapers/wp4676608-4k-pc-wallpapers.jpg fill
 
 
 default_border pixel 2
 
 # Change the keyboard layout
 input * {
-        xkb_layout "fr "
+        xkb_layout "fr"
         xkb_variant "optimot_ansi_18"
-        xkb_options "caps:ctrl_modifier"
+        # xkb_options "caps:ctrl_modifier"
 }
-# input * xkb_options "caps:escape"
+input * xkb_options "caps:escape"
 input * tap enabled
 
 input type:keyboard {
-   repeat_delay 160
-   repeat_rate 70
+   repeat_delay 200
+   repeat_rate 90
 }
 
 # NetworkManager
@@ -80,28 +80,53 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # Switch to workspace
-bindsym $mod+0x26 workspace number 1
-bindsym $mod+0xe9 workspace number 2
+# bindsym $mod+0x26 workspace number 1
+# bindsym $mod+0xe9 workspace number 2
+# bindsym $mod+0x22 workspace number 3
+# bindsym $mod+0x27 workspace number 4
+# bindsym $mod+0x28 workspace number 5
+# bindsym $mod+0x2d workspace number 6
+# # bindsym $mod+6 workspace number 6
+# bindsym $mod+0xe8 workspace number 7
+# bindsym $mod+0x5f workspace number 8
+# bindsym $mod+0xe7 workspace number 9
+# bindsym $mod+0xe0 workspace number 10
+
+# for optimot
+bindsym $mod+0xab workspace number 1
+bindsym $mod+0xbb workspace number 2
 bindsym $mod+0x22 workspace number 3
-bindsym $mod+0x27 workspace number 4
-bindsym $mod+0x28 workspace number 5
-bindsym $mod+0x2d workspace number 6
-# bindsym $mod+6 workspace number 6
-bindsym $mod+0xe8 workspace number 7
-bindsym $mod+0x5f workspace number 8
-bindsym $mod+0xe7 workspace number 9
-bindsym $mod+0xe0 workspace number 10
+bindsym $mod+0x2d workspace number 4
+bindsym $mod+0x2b workspace number 5
+bindsym $mod+0x2a workspace number 6
+bindsym $mod+0x2f workspace number 7
+bindsym $mod+0x3d workspace number 8
+bindsym $mod+0x28 workspace number 9
+bindsym $mod+0x29 workspace number 10
+
 # Move focused container to workspace
-bindsym $mod+Shift+0x26 move container to workspace number 1
-bindsym $mod+Shift+0xe9 move container to workspace number 2
+# bindsym $mod+Shift+0x26 move container to workspace number 1
+# bindsym $mod+Shift+0xe9 move container to workspace number 2
+# bindsym $mod+Shift+0x22 move container to workspace number 3
+# bindsym $mod+Shift+0x27 move container to workspace number 4
+# bindsym $mod+Shift+0x28 move container to workspace number 5
+# # bindsym $mod+Shift+6 move container to workspace number 6
+# bindsym $mod+Shift+0xe8 move container to workspace number 7
+# bindsym $mod+Shift+0x5f move container to workspace number 8
+# bindsym $mod+Shift+0xe7 move container to workspace number 9
+# bindsym $mod+Shift+0xe0 move container to workspace number 10
+
+# for optimot
+bindsym $mod+Shift+0xab move container to workspace number 1
+bindsym $mod+Shift+0xbb move container to workspace number 2
 bindsym $mod+Shift+0x22 move container to workspace number 3
-bindsym $mod+Shift+0x27 move container to workspace number 4
-bindsym $mod+Shift+0x28 move container to workspace number 5
-# bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+0xe8 move container to workspace number 7
-bindsym $mod+Shift+0x5f move container to workspace number 8
-bindsym $mod+Shift+0xe7 move container to workspace number 9
-bindsym $mod+Shift+0xe0 move container to workspace number 10
+bindsym $mod+Shift+0x2d move container to workspace number 4
+bindsym $mod+Shift+0x2b move container to workspace number 5
+bindsym $mod+Shift+0x2a move container to workspace number 6
+bindsym $mod+Shift+0x2f move container to workspace number 7
+bindsym $mod+Shift+0x3d move container to workspace number 8
+bindsym $mod+Shift+0x28 move container to workspace number 9
+bindsym $mod+Shift+0x29 move container to workspace number 10
 
 # You can "split" the current object of your focus with
 # $mod+b or $mod+v, for horizontal and vertical splits
@@ -130,7 +155,7 @@ bindsym $mod+a focus parent
 # You can send windows there and get them back later.
 
 # Move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
+# bindsym $mod+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
@@ -193,9 +218,8 @@ bar {
     #     inactive_workspace #32323200 #32323200 #5c5c5c
     # }
     # swaybar_command waybar
-    swaybar_command swaybar
-    status_command swaystatus
-
+    # swaybar_command swaybar
+    # status_command swaystatus
 }
 
 exec swaymsg "workspace 1; exec st;"
