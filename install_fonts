@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+sudo dnf install fira-code-fonts google-roboto-fonts
+
