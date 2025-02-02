@@ -6,13 +6,15 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 //static char *font = "monospace:pixelsize=15:antialias=true:autohint=true";
-static char *font = "Fira Code iScript:pixelsize=20:antialias=true:autohint=true";
+static char *font = "JetBrains Mono:pixelsize=21:antialias=true:autohint=true";
 static char *font2[] = {
+  "ShureTechMono Nerd Font:pixelsize=20:antialias=true:autohint=true",
   "NotoColorEmoji:pixelsize=15:antialias=true:autohint=true",
+  "Fira Code iScript:pixelsize=20:antialias=true:autohint=true",
   "Fira Code:pixelsize=15:antialias=true:autohint=true",
   "monospace:pixelsize=15:antialias=true:autohint=true",
   "Drois Sans Mono:pixelsize=15:antialias=true:autohint=true",
-  "Font Awesome 5 Free:pixelsize=15:antialias=true:autohint=true"
+  "Font Awesome 6 Free:pixelsize=15:antialias=true:autohint=true"
 
 };
 static int borderpx = 2;
