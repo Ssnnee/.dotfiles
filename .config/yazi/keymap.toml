@@ -52,7 +52,7 @@ keymap = [
 { on = [ "G" ],      run = "arrow 99999999",  desc = "Move cursor to the bottom" },
 
 # Selection
-{ on = [ "<Space>" ], run = [ "select --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
+{ on = [ "<Space>" ], run = [ "toggle --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
 { on = [ "v" ],       run = "visual_mode",                        desc = "Enter visual mode (selection mode)" },
 { on = [ "V" ],       run = "visual_mode --unset",                desc = "Enter visual mode (unset mode)" },
 { on = [ "<C-a>" ],   run = "select_all --state=true",            desc = "Select all files" },
@@ -172,7 +172,7 @@ keymap = [
 { on = [ "~" ], run = "help", desc = "Open help" }
   ]
 
-  [select]
+  [toggle]
 
   keymap = [
 { on = [ "<Esc>" ],   run = "close",          desc = "Cancel selection" },
@@ -209,7 +209,7 @@ keymap = [
 { on = [ "I" ], run = [ "move -999", "insert" ],             desc = "Move to the BOL, and enter insert mode" },
 { on = [ "A" ], run = [ "move 999", "insert --append" ],     desc = "Move to the EOL, and enter append mode" },
 { on = [ "v" ], run = "visual",                              desc = "Enter visual mode" },
-{ on = [ "V" ], run = [ "move -999", "visual", "move 999" ], desc = "Enter visual mode and select all" },
+{ on = [ "V" ], run = [ "move -999", "visual", "move 999" ], desc = "Enter visual mode and toggle all" },
 
 # Character-wise movement
 { on = [ "h" ],       run = "move -1", desc = "Move back a character" },
@@ -291,7 +291,7 @@ keymap = [
 { on = [ "q" ],     run = "close",  desc = "Exit the process" },
 { on = [ "<C-q>" ], run = "close",  desc = "Hide the help" },
 
-# Navigation
+  # Navigation
 { on = [ "k" ], run = "arrow -1", desc = "Move cursor up" },
 { on = [ "j" ], run = "arrow 1",  desc = "Move cursor down" },
 
@@ -304,6 +304,6 @@ keymap = [
 { on = [ "<S-Up>" ],   run = "arrow -5", desc = "Move cursor up 5 lines" },
 { on = [ "<S-Down>" ], run = "arrow 5",  desc = "Move cursor down 5 lines" },
 
-# Filtering
+  # Filtering
 { on = [ "/" ], run = "filter", desc = "Apply a filter for the help items" },
-  ]
+]

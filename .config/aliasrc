@@ -2,6 +2,8 @@
 alias vim=nvim
 alias vc="vim ~/.config/nvim/"
 alias vi="nvim --noplugin"
+alias v="/usr/bin/vim"
+alias emacs="emacsclient -c -a 'emacs'"
 alias d='cd ~/.coding/'
 alias m='cd ~/Music'
 alias t='cd ~/Downloads'
@@ -27,9 +29,12 @@ alias ll='ls -lAh'
 alias xfce4-terminal='xfce4-terminal --hide-menubar --hide-scrollbar'
 # fd() {cd "find ~/.coding/ ~/.coding/ALX/  ~/.ecole/  -mindepth 1 -maxdepth 1 -type d | fzf)" ; $EDITOR .}
 alias install="sudo dnf install"
-alias search="pacman -Ss"
-alias upgrade="sudo pacman -Syu"
-alias dclean="sudo dnf clean"
+# alias search="pacman -Ss"
+alias search="dnf search"
+# alias upgrade="sudo pacman -Syu"
+alias upgrade="sudo dnf upgrade"
+alias dclean="sudo dnf clean all"
+alias dremove="sudo dnf remove"
 alias ga="git add"
 alias gc="git commit"
 alias gp="git push"

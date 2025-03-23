@@ -6,8 +6,9 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 //static char *font = "monospace:pixelsize=15:antialias=true:autohint=true";
-static char *font = "JetBrains Mono:pixelsize=21:antialias=true:autohint=true";
+static char *font = "Iosevka:pixelsize=24:antialias=true:autohint=true";
 static char *font2[] = {
+  "JetBrains Mono:pixelsize=21:antialias=true:autohint=true",
   "ShureTechMono Nerd Font:pixelsize=20:antialias=true:autohint=true",
   "NotoColorEmoji:pixelsize=15:antialias=true:autohint=true",
   "Fira Code iScript:pixelsize=20:antialias=true:autohint=true",
@@ -117,114 +118,100 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.8;
+float alpha = 1;
 float alphaOffset = 0.0;
 float alphaUnfocus;
 
-/* Terminal colors (16 first used in escape sequence) */
 
 // static const char *colorname[] = {
-//   "#45475A", /* black   */ /* hard contrast: #1d2021 / soft contrast: #32302f */
-//   "#cc0403", /* red     */
-//   "#19cb00", /* green   */
-//   "#cecb00", /* yellow  */
-//   "#0d73cc", /* blue    */
-//   "#cb1ed1", /* magenta */
-//   "#0dcdcd", /* cyan    */
-//   "#dddddd", /* white   */
+//   "#313244", /* black   */ /* hard contrast: #1d2021 / soft contrast: #32302f */
+//   "#f38ba8", /* red     */
+//   "#a6e3a1", /* green   */
+//   "#f9e2af", /* yellow  */
+//   "#89b4fa", /* blue    */
+//   "#f5c2e7", /* magenta */
+//   "#94e2d5", /* cyan    */
+//   "#cdd6f4", /* white   */
 //
-//   "#767676", /* black   */
-//   "#f2201f", /* red     */
-//   "#23fd00", /* green   */
-//   "#fffd00", /* yellow  */
-//   "#1a8fff", /* blue    */
-//   "#fd28ff", /* magenta */
-//   "#14ffff", /* cyan    */
-//   "#ffffff", /* white   */
+//   "#585b70", /* bright black */
+//   "#f38ba8", /* bright red   */
+//   "#a6e3a1", /* bright green */
+//   "#f9e2af", /* bright yellow*/
+//   "#89b4fa", /* bright blue  */
+//   "#f5c2e7", /* bright magenta */
+//   "#94e2d5", /* bright cyan   */
+//   "#ffffff", /* bright white  */
+//
 //   [255] = 0,
 //   /* more colors can be added after 255 to use with DefaultXX */
-//   "#add8e6", /* 256 -> cursor */
-//   "#555555", /* 257 -> rev cursor*/
+//   "#b4befe", /* 256 -> cursor */
+//   "#45475a", /* 257 -> rev cursor */
 //   "#000000", /* 258 -> bg */
-//   "#c5c8c6", /* 259 -> fg */
+//   "#cdd6f4", /* 259 -> fg */
 // };
 
+// Terminal colors (16 first used in escape sequence) (Black Metal Theme)
+// https://github.com/metalelf0/base16-black-metal-scheme/blob/master/black-metal-marduk.yaml
+// static const char *colorname[] = {
+//   "#000000", /* black   */ /* hard contrast: #000000 / soft contrast: #121212 */
+//   "#5f8787", /* red     */
+//   "#a5aaa7", /* green   */
+//   "#626b67", /* yellow  */
+//   "#888888", /* blue    */
+//   "#999999", /* magenta */
+//   "#aaaaaa", /* cyan    */
+//   "#c1c1c1", /* white   */
+//
+//   "#333333", /* bright black */
+//   "#5f8787", /* bright red   */
+//   "#a5aaa7", /* bright green */
+//   "#626b67", /* bright yellow*/
+//   "#888888", /* bright blue  */
+//   "#999999", /* bright magenta */
+//   "#aaaaaa", /* bright cyan   */
+//   "#c1c1c1", /* bright white  */
+//
+//   [255] = 0,
+//   /* more colors can be added after 255 to use with DefaultXX */
+//   "#999999", /* 256 -> cursor */
+//   "#222222", /* 257 -> rev cursor */
+//   "#000000", /* 258 -> bg */
+//   "#c1c1c1", /* 259 -> fg */
+// };
+
+
 static const char *colorname[] = {
-  "#313244", /* black   */ /* hard contrast: #1d2021 / soft contrast: #32302f */
+  "#000000", /* black   */ /* hard contrast: #000000 / soft contrast: #121212 */
   "#f38ba8", /* red     */
-  "#a6e3a1", /* green   */
+  "#a5aaa7", /* green   */
   "#f9e2af", /* yellow  */
-  "#89b4fa", /* blue    */
-  "#f5c2e7", /* magenta */
+  "#888888", /* blue    */
+  "#999999", /* magenta */
   "#94e2d5", /* cyan    */
   "#cdd6f4", /* white   */
 
-  "#585b70", /* bright black */
+  "#333333", /* bright black */
   "#f38ba8", /* bright red   */
-  "#a6e3a1", /* bright green */
+  "#a5aaa7", /* bright green */
   "#f9e2af", /* bright yellow*/
-  "#89b4fa", /* bright blue  */
-  "#f5c2e7", /* bright magenta */
+  "#888888", /* bright blue  */
+  "#999999", /* bright magenta */
   "#94e2d5", /* bright cyan   */
   "#ffffff", /* bright white  */
 
   [255] = 0,
   /* more colors can be added after 255 to use with DefaultXX */
-  "#b4befe", /* 256 -> cursor */
-  "#45475a", /* 257 -> rev cursor */
-  "#000000", /* 258 -> bg */
+  // "#b4befe", /* 256 -> cursor */
+  // "#FED57C", /* 256 -> cursor */
+  // "#ffdd33", /* 256 -> cursor */
+  "#f9e2af", /* 256 -> cursor */
+  "#222222", /* 257 -> rev cursor */
+  "#181818", /* 258 -> bg */
   "#cdd6f4", /* 259 -> fg */
 };
 
 
-// static const char *colorname[] = {
-//   "#45475A", /* black   */
-//   "#F38BA8", /* red     */
-//   "#A6E3A1", /* green   */
-//   "#F9E2AF", /* yellow  */
-//   "#89B4FA", /* blue    */
-//   "#F5C2E7", /* magenta */
-//   "#94E2D5", /* cyan    */
-//   "#BAC2DE", /* white   */
-//   "#585B70", /* bright black   */
-//   "#F38BA8", /* bright red     */
-//   "#A6E3A1", /* bright green   */
-//   "#F9E2AF", /* bright yellow  */
-//   "#89B4FA", /* bright blue    */
-//   "#F5C2E7", /* bright magenta */
-//   "#94E2D5", /* bright cyan    */
-//   "#A6ADC8", /* bright white   */
-//   [255] = 0,
-//   /* more colors can be added after 255 to use with DefaultXX */
-//   "#F5E0DC", /* 256 -> cursor */
-//   "#585B70", /* 257 -> rev cursor*/
-//   "#1E1E2E", /* 258 -> bg */
-//   "#CDD6F4", /* 259 -> fg */
-// };
-// static const char *colorname[] = {
-//   "#494D64", /* black   */
-//   "#ED8796", /* red     */
-//   "#A6DA95", /* green   */
-//   "#EED49F", /* yellow  */
-//   "#8AADF4", /* blue    */
-//   "#F5BDE6", /* magenta */
-//   "#8BD5CA", /* cyan    */
-//   "#B8C0E0", /* white   */
-//   "#5B6078", /* bright black   */
-//   "#ED8796", /* bright red     */
-//   "#A6DA95", /* bright green   */
-//   "#EED49F", /* bright yellow  */
-//   "#8AADF4", /* bright blue    */
-//   "#F5BDE6", /* bright magenta */
-//   "#8BD5CA", /* bright cyan    */
-//   "#A5ADCB", /* bright white   */
-//   [255] = 0,
-//   /* more colors can be added after 255 to use with DefaultXX */
-//   "#F4DBD6", /* 256 -> cursor */
-//   "#5B6078", /* 257 -> rev cursor*/
-//   "#24273A", /* 258 -> bg */
-//   "#CAD3F5", /* 259 -> fg */
-// };
+
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor

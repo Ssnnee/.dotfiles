@@ -1,3 +1,5 @@
+font pango:iosevka nerd font regular 12
+
 # Logo key. Use Mod1 for Alt. nmtui
 set $mod Mod4
 
@@ -9,32 +11,52 @@ set $right l
 # set $rof "rofi -modi drun,run -show drun"
 set $menu rof  | dmenu_path | dmenu | xargs swaymsg exec --
 
-output * bg /home/sne/Pictures/wallpapers/wp4676608-4k-pc-wallpapers.jpg fill
-
+output * bg /home/snandi/pic/wallpapers/Kojiro.png fill
+gaps inner 2
+gaps outer 2
 
 default_border pixel 2
+default_floating_border pixel 2
 
 # Change the keyboard layout
 input * {
-        xkb_layout "fr"
-        xkb_variant "optimot_ansi_18"
-        # xkb_options "caps:ctrl_modifier"
+  xkb_layout "fr"
+  xkb_variant "optimot_ansi_18"
+# xkb_options "caps:ctrl_modifier"
 }
+
 input * xkb_options "caps:escape"
 input * tap enabled
 
 input type:keyboard {
-   repeat_delay 200
-   repeat_rate 90
+  repeat_delay 200
+  repeat_rate 90
 }
+
+###### Configurable for SwayFX users ######
+# blur enable
+# blur_xray disable
+# blur_passes 0
+# blur_radius 5
+# shadows enable
+# shadow_blur_radius 10
+# corner_radius 10
+# layer_effects "waybar" {
+#     blur enable;
+#     blur_xray enable;
+#     # blur_ignore_transparent enable;
+#     shadows enable;
+#     corner_radius 20;
+# }
 
 # NetworkManager
 exec --no-startup-id nm-applet
+exec --no-startup-id swayidle
 # exec nm-applet
 
 # Passmenu
 bindsym $mod+p exec passmenu
-    # Start a terminal
+# Start a terminal
 bindsym $mod+Return exec st
 
 # Kill focused window
@@ -42,8 +64,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 
 # Start your launcher
-# bindsym $mod+d exec "rofi -modi drun,run -show drun"
-bindsym $mod+d exec fuzzel
+bindsym $mod+d exec "rofi -modi drun,run -show drun"
+# bindsym $mod+d exec fuzzel
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -164,18 +186,18 @@ bindsym $mod+Ctrl+minus scratchpad show
 # Resizing containers:
 #
 mode "resize" {
-    bindsym $left resize shrink width 10px
+  bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
 
-    # Ditto, with arrow keys
+# Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
     bindsym Up resize shrink height 10px
     bindsym Right resize grow width 10px
 
-    # Return to default mode
+# Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -192,46 +214,46 @@ bindsym XF86MonBrightnessUp exec --no-startup-id "brillo -q -A 5"
 
 
 # Screenshots
-bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')
-bindsym $mod+Print exec --no-startup-id grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')
+bindsym Print exec grim ~/pic/$(date +'%s_grim.png')
+bindsym $mod+Print exec --no-startup-id grim -g "$(slurp)" ~/pic/$(date +'%s_grim.png')
 
 # Clipboard Screenshots
-bindsym Ctrl+Print exec --no-startup-id grim ~/Pictures/$(date).png | wl-copy
-bindsym Ctrl+$mod+Print exec --no-startup-id grim -g "$(slurp)" ~/Pictures/$(date).png | wl-copy
+bindsym Ctrl+Print exec --no-startup-id grim ~/pic/$(date).png | wl-copy
+bindsym Ctrl+$mod+Print exec --no-startup-id grim -g "$(slurp)" ~/pic/$(date).png | wl-copy
 
 # Bind for opening specific app
-bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+f exec flatpak run app.zen_browser.zen
 bindsym $mod+Shift+p exec pcmanfm
 bindsym $mod+Shift+t exec telegram-desktop
 bindsym $mod+Shift+b exec brave
 
 bar {
-    # position bottom
+# position bottom
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+# When the status_command prints a new line to stdout, swaybar updates.
+# The default just shows the current date and time.
+# status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
-    # colors {
-    #     statusline #ffffff
-    #     background #323232
-    #     inactive_workspace #32323200 #32323200 #5c5c5c
-    # }
-    # swaybar_command waybar
-    # swaybar_command swaybar
-    # status_command swaystatus
+# colors {
+#     statusline #ffffff
+#     background #323232
+#     inactive_workspace #32323200 #32323200 #5c5c5c
+# }
+# swaybar_command waybar
+# swaybar_command swaybar
+# status_command swaystatus
 }
 
 exec swaymsg "workspace 1; exec st;"
 exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000' \
-    timeout 600 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -f -c 000000'
+       timeout 300 'pidof hyprlock || hyprlock' \
+       timeout 600 'swaymsg "output * dpms off"' \
+       resume 'swaymsg "output * dpms on"' \
+       before-sleep 'loginctl lock-session'
 # exec swaymsg "workspace 2; exec firefox;"
- # exec swaymsg "workspace 2; exec qutebrowser;"
+# exec swaymsg "workspace 2; exec qutebrowser;"
 # exec swaymsg "workspace 3; exec st;"
 # exec swaymsg "workspace 4; exec flatpak run org.telegram.desktop;"
 # exec swaymsg "workspace 9; exec protonvpn-app;"
 
-include /etc/sway/coinfig.d/*
+       include /etc/sway/config.d/*

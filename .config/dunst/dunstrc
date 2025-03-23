@@ -1,4 +1,4 @@
-[global]
+  [global]
     ### Display ###
     monitor = 0
 	follow = keyboard
