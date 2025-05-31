@@ -20,3 +20,25 @@ Just need to install android-file-transfer
 ```bash
 sudo rpm -e --nodeps  <package_name>
 ```
+
+## To build st
+After clonig luke smith repo, need to remplace CC=c99 by CC=cc
+- On opensuse here the package that have to be added
+```
+libXft-devel
+```
+
+
+## To generate an ssh key for github
+```bash
+ssh-keygen -t ed25519 -C "mail"
+```
+## To setup pass
+```bash
+gpg --full-gen-key
+```
+Then follow the instructions, and then run:
+```bash
+pass init "Your Name"
+```
+For pass otp, you need to install it and zbarimg or zbar depending on your distro.
