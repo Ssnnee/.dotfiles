@@ -3,14 +3,14 @@
 # ~/.coding/.dotfiles
 
 repo_path=~/.coding/.dotfiles
-app_list="cava fuzzel yazi dunst kitty picom waybar tmux sway swaylock aliasrc neofetch  rofi zathura scripts hypr i3 awesome"
+app_list="cava wob fuzzel yazi dunst kitty picom waybar tmux sway swaylock aliasrc neofetch  rofi zathura scripts hypr i3 awesome"
 
 for app in $app_list; do
     cp -r ~/.config/"$app" ~/.coding/.dotfiles/.config/
 done
 
 # Copy zshrc
-cp ~/.zshrc repo_path
+cp ~/.zshrc $repo_path
 
 # Copy tmux  config
 # cp ~/.tmux.conf $repo_path
