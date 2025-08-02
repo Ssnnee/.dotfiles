@@ -3,7 +3,7 @@ export EDITOR="/usr/bin/nvim"
 
 
 # Theme
-ZSH_THEME="robbyrussell"
+ZSH_THEME="lambda"
 
 # Plugins
 # plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
@@ -67,8 +67,3 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Created by `pipx` on 2024-04-11 11:11:18
-export PATH="$PATH:/home/sne/.local/bin"
-export PATH="$HOME/.tmuxifier/bin:$PATH"
-eval "$(tmuxifier init -)"

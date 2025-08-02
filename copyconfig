@@ -3,7 +3,7 @@
 # ~/.coding/.dotfiles
 
 repo_path=~/.coding/.dotfiles
-app_list="cava wob fuzzel yazi dunst kitty picom waybar tmux sway swaylock aliasrc neofetch  rofi zathura scripts hypr i3 awesome"
+app_list="cava wob fuzzel ghostty yazi dunst kitty picom waybar tmux sway swaylock aliasrc neofetch  rofi zathura scripts hypr i3 awesome"
 
 for app in $app_list; do
     cp -r ~/.config/"$app" ~/.coding/.dotfiles/.config/

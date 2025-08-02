@@ -1,13 +1,13 @@
 * {
-  font-family: "UbuntuMono Nerd Font";
-  font-size: 16px;
+  font-family: "Iosevka";
+  font-size: 12px;
   min-height: 0;
-  transition: all 0.2s ease;
 }
 
 window#waybar {
   background: #000000;
-  color: #ffffff;
+  /* background: #1e1e2e; */
+  color: #cdd6f4;
   padding: 2px 6px;
 }
 
@@ -18,7 +18,8 @@ window#waybar.hidden {
 #window {
   margin: 0 6px;
   padding: 2px 10px;
-  background-color: #000000;
+  background-color: transparent;
+  color: #cdd6f4;
   font-size: 16px;
   font-weight: bold;
   border-radius: 6px;
@@ -33,40 +34,44 @@ button {
 #workspaces button {
   margin: 0 0;
   padding: 0 0;
-  /* min-width: 24px; */
-  /* border-radius: 6px; */
+  /* background: #1e1e2e; */
   background: #000000;
+  color: #cdd6f4;
+  /* color: #6c7086; */
 }
 
 #workspaces button.focused {
-  background-color: #4e5263;
+  background-color: #89b4fa;
+  color: #1e1e2e;
 }
 
 #workspaces button.active {
-  background-color: #4e5263;
+  background-color: #89b4fa;
+  color: #1e1e2e;
 }
 
 #workspaces button:hover {
-  background: #4e5263;
+  background: #45475a;
+  color: #cdd6f4;
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
-  color: #ffffff;
+  background-color: #f38ba8;
+  color: #1e1e2e;
   animation: urgent-blink 1s ease-in-out infinite;
 }
 
 @keyframes urgent-blink {
-0% { opacity: 1; }
-50% { opacity: 0.7; }
-100% { opacity: 1; }
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
 }
 
 #custom-os_button {
   font-size: 24px;
   padding-left: 12px;
   padding-right: 20px;
-  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: #cba6f7;
 }
 
 #clock,
@@ -87,49 +92,52 @@ button {
 #mpd {
   margin: 2px 3px;
   padding: 1px 10px;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #313244;
+  color: #cdd6f4;
   border-radius: 6px;
 }
 
 #clock {
   font-size: 14px;
   font-weight: bold;
-  background-color: #4e5263;
+  background-color: #89b4fa;
+  color: #1e1e2e;
   margin-left: 6px;
 }
 
 #battery.charging,
 #battery.plugged {
-  background-color: #4e5263;
-  color: #ffffff;
+  background-color: #a6e3a1;
+  color: #1e1e2e;
 }
 
 #battery.warning:not(.charging),
 #battery.critical:not(.charging) {
-  background-color: #eb4d4b;
-  color: #ffffff;
+  background-color: #f9e2af;
+  color: #1e1e2e;
   animation: battery-blink 1s linear infinite alternate;
 }
 
 @keyframes battery-blink {
-to {
-  background-color: #ffffff;
-  color: #eb4d4b;
-}
+  to {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+  }
 }
 
 #network.disconnected {
-  background-color: #eb4d4b;
+  background-color: #f38ba8;
+  color: #1e1e2e;
 }
 
 #temperature.critical {
-  background-color: #eb4d4b;
+  background-color: #f38ba8;
+  color: #1e1e2e;
 }
 
 #idle_inhibitor.activated {
-  background-color: #4e5263;
-  color: #ffffff;
+  background-color: #fab387;
+  color: #1e1e2e;
 }
 
 #tray > .passive {
@@ -138,5 +146,6 @@ to {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
+  background-color: #f38ba8;
+  color: #1e1e2e;
 }

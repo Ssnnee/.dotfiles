@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 //static char *font = "monospace:pixelsize=15:antialias=true:autohint=true";
-static char *font = "Iosevka:pixelsize=18:antialias=true:autohint=true";
+static char *font = "Iosevka:pixelsize=24:antialias=true:autohint=true";
 static char *font2[] = {
   "JetBrains Mono:pixelsize=16:antialias=true:autohint=true",
   "ShureTechMono Nerd Font:pixelsize=20:antialias=true:autohint=true",
@@ -207,6 +207,7 @@ static const char *colorname[] = {
   "#f9e2af", /* 256 -> cursor */
   "#222222", /* 257 -> rev cursor */
   "#181818", /* 258 -> bg */
+  // "#282c34", /* 258 -> bg */
   "#cdd6f4", /* 259 -> fg */
 };
 

@@ -2,14 +2,14 @@ font pango:iosevka nerd font regular 12
 
 #theme
 default_border pixel 1
-gaps inner 2
-gaps outer 4
+# gaps inner 2
+# gaps outer 4
 client.focused #6da741 #173f4f #73ba25 #6da741 #00a489
 client.unfocused #00a489 #173f4f #35b9ab
 client.focused_inactive #6da741 #00a489 #173f4f
 
-dim_inactive_colors.unfocused #173f4f
-dim_inactive_colors.urgent #900000FF
+# dim_inactive_colors.unfocused #173f4f
+# dim_inactive_colors.urgent #900000FF
 
 set $wob wob --config ./wob/wob.ini
 
@@ -24,8 +24,7 @@ set $right l
 # set $rof "rofi -modi drun,run -show drun"
 set $menu rof  | dmenu_path | dmenu | xargs swaymsg exec --
 
-output * bg /home/sne/Pictures/wallpapers/surreal-scenery-ai-5119x3856-18778.jpeg fill
-
+output * bg /home/sne/Images/wallpapers/wp3126191-adele-2018-wallpapers.jpg fill
 default_border pixel 2
 default_floating_border pixel 2
 
@@ -43,26 +42,31 @@ input type:keyboard {
   repeat_delay 200
     repeat_rate 90
 }
-
+input type:touchpad {
+ events disabled_on_external_mouse
+}
+input type:touch {
+ events disabled
+}
 # Cycle through workspaces
 bindsym $mod+tab workspace next_on_output
 bindsym $mod+Shift+tab workspace prev_on_output
 
-before-sleep $screenlock
+# before-sleep $screenlock
 
-blur on
-blur_xray off
-blur_passes 1
-blur_radius 5
-
-corner_radius 6
-
-shadows off
-shadows_on_csd off
-shadow_blur_radius 20
-shadow_color #0000007F
-
-default_dim_inactive 0.0
+# blur on
+# blur_xray off
+# blur_passes 1
+# blur_radius 5
+#
+# corner_radius 6
+#
+# shadows off
+# shadows_on_csd off
+# shadow_blur_radius 20
+# shadow_color #0000007F
+#
+# default_dim_inactive 0.0
 
 
 # NetworkManager

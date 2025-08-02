@@ -1,0 +1,6 @@
+font-family = Iosevka
+font-size = 18
+window-padding-x = 2
+
+keybind = alt+c=copy_to_clipboard
+keybind = alt+v=paste_from_clipboard	
