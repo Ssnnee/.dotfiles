@@ -1,5 +1,5 @@
-#!/bin/bash
-# This script sets up dotfiles and installs applications.
+#!/usr/bin/env bash
+# This script show download the needed packages
 
 # Installing apps for
 nvim="https://github.com/neovim/neovim.git"

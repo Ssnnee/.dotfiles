@@ -1,6 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script copy dotfiles to the repo location. In this case,
 # ~/.coding/.dotfiles
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+
+print_success() {
+    echo -e "${GREEN}[SUCCESS]${NC} $1"
+}
+
+print_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
 
 repo_path=~/.coding/.dotfiles
 app_list="cava wob fuzzel ghostty yazi dunst kitty picom waybar tmux sway swaylock aliasrc neofetch  rofi zathura scripts hypr i3 awesome"
@@ -10,13 +21,10 @@ for app in $app_list; do
 done
 
 # Copy zshrc
-cp ~/.zshrc $repo_path
+if cp ~/.zshrc $repo_path then
+    print_success "Configs copied successfully"
+else
+    print_error "Some forder does not exist anymore"
+fi
 
-# Copy tmux  config
-# cp ~/.tmux.conf $repo_path
-
-# cp pacman config
-# cp /etc/pacman.conf $repo_path
-
-# Copy suckless terminal config
 cp -r ~/.coding/st/config.h ~/.coding/.dotfiles/.config/st/
