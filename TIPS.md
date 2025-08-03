@@ -42,3 +42,14 @@ Then follow the instructions, and then run:
 pass init "Your Name"
 ```
 For pass otp, you need to install it and zbarimg or zbar depending on your distro.
+
+## To change languages
+To do this, need to see the list first `locale -a`
+then for example
+```bash
+localectl set-locale LANG=en_GB.utf8
+```
+The computer have to be restart so that it can take effect
+You can also just change the `$LANG` value by `LANG=...` you might also just
+export it `export LANG=...`
+
