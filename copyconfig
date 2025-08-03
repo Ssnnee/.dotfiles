@@ -21,7 +21,7 @@ for app in $app_list; do
 done
 
 # Copy zshrc
-if cp -r ~/.zshrc $repo_path then
+if cp -r ~/.zshrc $repo_path; then
     print_success "Configs copied successfully"
 else
     print_error "Some forder does not exist anymore"
