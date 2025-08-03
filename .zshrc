@@ -1,5 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR="/usr/bin/nvim"
+export EDITOR="nvim"
+export MANPAGER="nvim +Man!"
+export PATH="$HOME/.config/scripts:$PATH"
 
 
 # Theme
