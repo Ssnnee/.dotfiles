@@ -9,7 +9,8 @@ So to make zen browser (the flatpak version) for example  the default browser,
 just run:
 
 >[!NOTE]:
->Make sur to check the desktop file name in `/var/lib/flatpak/exports/share/applications/`
+>Make sur to check the desktop file name in
+>`/var/lib/flatpak/exports/share/applications/` or `/usr/share/applications`
 ```bash
 xdg-settings set default-web-browser app.zen_browser.zen.desktop
 ```
