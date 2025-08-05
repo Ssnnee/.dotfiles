@@ -272,7 +272,9 @@ bar {
 }
 
 exec swaymsg "workspace 1; exec st;"
-exec swaymsg "workspace 3; exec st;"
+exec swaymsg "workspace 3; exec st -e nvim;"
+exec swaymsg "workspace 2; exec flatpak run app.zen_browser.zen;"
+exec swaymsg "workspace 8; exec kdeconnect-app;"
 
 # System mode menu
 set $mode_system "(l) lock, (e) logout, (r) reboot, (s) suspend, (Shift+s) shutdown"
