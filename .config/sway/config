@@ -271,9 +271,11 @@ bar {
   swaybar_command waybar
 }
 
+# Auto start applacations
 exec swaymsg "workspace 1; exec st;"
-exec swaymsg "workspace 3; exec st -e nvim;"
+exec swaymsg "workspace 3; exec st;"
 exec swaymsg "workspace 2; exec flatpak run app.zen_browser.zen;"
+exec swaymsg "workspace 4; exec flatpak run org.telegram.desktop ;"
 exec swaymsg "workspace 8; exec kdeconnect-app;"
 
 # System mode menu
@@ -300,7 +302,7 @@ exec_always {
   systemctl --user import-environment
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
     gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
-    gsettings set org.gnome.desktop.interface cursor-theme 'Breeze Light'
+    gsettings set org.gnome.desktop.interface cursor-theme 'Breeze Dark'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     test -e $SWAYSOCK.wob || mkfifo $SWAYSOCK.wob
     tail -f $SWAYSOCK.wob | $wob
