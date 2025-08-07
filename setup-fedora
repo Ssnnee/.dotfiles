@@ -82,6 +82,7 @@ flatpak_apps=(
     "com.brave.Browser"
     "app.zen_browser.zen"
     "org.telegram.desktop"
+    "dev.bragefuglseth.Keypunch"
 )
 
 github_repos=("$nvim" "$st")
