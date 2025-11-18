@@ -75,7 +75,7 @@ dnf_packages=(
     "fastfetch" "pamixer" "brightnessctl" "nodejs" "libXft-devel"
     "ninja-build" "cmake" "gcc" "make" "gettext"
     "curl" "glibc-gconv-extra" "zathura-pdf-mupdf" "git" "zsh"
-    "btop" "go" "rust" "vim" "network-manager-applet"
+    "btop" "go" "rust" "vim" "network-manager-applet" "fzf"
 )
 
 flatpak_apps=(
