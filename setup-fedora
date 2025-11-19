@@ -210,6 +210,9 @@ else
     print_warning "Fonts directory not found"
 fi
 
+print_status "Installing optimot keyboard..."
+sudo sh -c "$(curl -fsSL https://steevelefort.github.io/optimot-install/install.sh)"
+
 print_success "Fedora setup completed!"
 print_status "Summary of installed components:"
 echo "  ✓ DNF packages and Sway desktop environment"
