@@ -314,8 +314,8 @@ exec_always {
 set $screenlock 'swaylock --config ~/.config/swaylock/config'
 # Idle configuration
 exec swayidle -w \
-       timeout 900 $screenlock \
-       timeout 960 'swaymsg "output * power off"' \
+       timeout 300 $screenlock \
+       timeout 600 'systemctl suspend' \
        resume 'swaymsg "output * power on"' \
 
 exec /usr/libexec/polkit-gnome-authentication-agent-1
