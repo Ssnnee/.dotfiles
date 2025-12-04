@@ -5,8 +5,8 @@ default_border pixel 1
 titlebar_border_thickness 0
 titlebar_padding 0 0
 client.focused          #33ccff #33ccff #33ccff #33ccff #00a489
-client.focused_inactive #595959 #595959 #595959 #595959 #00a489
-client.unfocused        #595959 #595959 #595959 #595959 #00a489
+client.focused_inactive #173f4f #595959 #595959 #595959 #00a489
+client.unfocused        #595959 #595959 #595959 #595959 #595959
 client.urgent           #ff5555 #ff5555 #ff5555 #ff5555 #ff5555
 
 # dim_inactive_colors.unfocused #173f4f
