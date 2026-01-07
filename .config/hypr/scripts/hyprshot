@@ -1,0 +1,44 @@
+#!/bin/sh
+
+DIR="$HOME/Pictures/Screenshots"
+mkdir -p "$DIR"
+
+menu() {
+  printf "Full\nFull (clipboard)\nArea\nArea (clipboard)\nWindow\nWindow (clipboard)\nOutput\nOutput (clipboard)\n"
+}
+
+pick=$(menu | rofi -dmenu -i -p "Screenshot")
+
+timestamp=$(date +'%Y-%m-%d_%H-%M-%S')
+
+case "$pick" in
+  "Full")
+    grim "$DIR/$timestamp.png"
+    ;;
+  "Full (clipboard)")
+    grim - | wl-copy
+    ;;
+  "Area")
+    slurp | grim -g - "$DIR/$timestamp.png"
+    ;;
+  "Area (clipboard)")
+    slurp | grim -g - - | wl-copy
+    ;;
+  "Window")
+    rect=$(hyprctl -j activewindow | jq -r '.at[0], .at[1], .size[0], .size[1]' | paste -sd' ')
+    grim -g "$(echo "$rect" | awk '{print $1","$2" "$3"x"$4}')" "$DIR/$timestamp.png"
+    ;;
+  "Window (clipboard)")
+    rect=$(hyprctl -j activewindow | jq -r '.at[0], .at[1], .size[0], .size[1]' | paste -sd' ')
+    grim -g "$(echo "$rect" | awk '{print $1","$2" "$3"x"$4}')" - | wl-copy
+    ;;
+  "Output")
+    output=$(hyprctl -j monitors | jq -r '.[] | select(.focused==true).name')
+    grim -o "$output" "$DIR/$timestamp.png"
+    ;;
+  "Output (clipboard)")
+    output=$(hyprctl -j monitors | jq -r '.[] | select(.focused==true).name')
+    grim -o "$output" - | wl-copy
+    ;;
+esac
+

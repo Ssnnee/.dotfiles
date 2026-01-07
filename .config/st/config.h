@@ -181,7 +181,8 @@ float alphaUnfocus;
 
 
 static const char *colorname[] = {
-  "#000000", /* black   */ /* hard contrast: #000000 / soft contrast: #121212 */
+  // Standard Colors (0-7) - Already muted, keeping for consistency
+  "#000000", /* black   */
   "#f38ba8", /* red     */
   "#a5aaa7", /* green   */
   "#f9e2af", /* yellow  */
@@ -190,26 +191,23 @@ static const char *colorname[] = {
   "#94e2d5", /* cyan    */
   "#cdd6f4", /* white   */
 
-  "#333333", /* bright black */
+  // Bright Colors (8-15) - Bright White is slightly dimmed for less harsh contrast
+  "#333333", /* bright black (lighter gray for subtle contrast) */
   "#f38ba8", /* bright red   */
   "#a5aaa7", /* bright green */
   "#f9e2af", /* bright yellow*/
   "#888888", /* bright blue  */
   "#999999", /* bright magenta */
   "#94e2d5", /* bright cyan   */
-  "#ffffff", /* bright white  */
+  "#e4e4e4", /* bright white (slightly softer than #ffffff) */
 
   [255] = 0,
   /* more colors can be added after 255 to use with DefaultXX */
-  // "#b4befe", /* 256 -> cursor */
-  // "#FED57C", /* 256 -> cursor */
-  // "#ffdd33", /* 256 -> cursor */
-  "#f9e2af", /* 256 -> cursor */
+  "#f9e2af", /* 256 -> cursor (Retained yellow for visibility) */
   "#222222", /* 257 -> rev cursor */
-  "#181818", /* 258 -> bg */
-  "#cdd6f4", /* 259 -> fg */
+  "#181818", /* 258 -> bg (Background) */
+  "#cdd6f4", /* 259 -> fg (Foreground) */
 };
-
 
 
 /*

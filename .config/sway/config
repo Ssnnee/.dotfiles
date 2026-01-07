@@ -44,7 +44,7 @@ input type:keyboard {
     repeat_rate 90
 }
 input type:touchpad {
- events disabled_on_external_mouse
+ # events disabled_on_external_mouse
 }
 input type:touch {
  events disabled

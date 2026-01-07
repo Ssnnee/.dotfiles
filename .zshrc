@@ -69,3 +69,9 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/home/sne/.opencode/bin:$PATH
+
+# Android SDK
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk

@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+# FUNCTION: Print usage instructions
+usage() {
+  echo "Usage: $0 -u <URL> -t <TOKEN> [-d <DATA>] [-o <OUTPUT_FILE>]"
+  echo "  -u  Target URL (Required)"
+  echo "  -t  Bearer Token (Required)"
+  echo "  -d  JSON Data payload (Optional)"
+  echo "  -o  Output file (Optional, defaults to stdout)"
+  exit 1
+}
+
+# Initialize variables
+URL=""
+TOKEN=""
+DATA=""
+OUTPUT="/dev/stdout" # Default to printing to screen
+
+# Parse flags (makes the script easier to use)
+while getopts ":u:t:d:o:" opt; do
+  case $opt in
+    u) URL="$OPTARG" ;;
+    t) TOKEN="$OPTARG" ;;
+    d) DATA="$OPTARG" ;;
+    o) OUTPUT="$OPTARG" ;;
+    *) usage ;;
+  esac
+done
+
+# Check required arguments
+if [[ -z "$URL" || -z "$TOKEN" ]]; then
+  echo "Error: URL and Token are required."
+  usage
+fi
+
+# Build the curl command
+# Note: We use an array for cleaner argument handling
+CMD=(curl -X GET "$URL")
+CMD+=(-H "Content-Type: application/json")
+CMD+=(-H "Accept: application/json")
+CMD+=(-H "Authorization: Bearer $TOKEN")
+CMD+=(-w "\nHTTP Status: %{http_code}\n")
+CMD+=(--silent --show-error --insecure)
+
+# Only add data flag if data exists
+if [[ -n "$DATA" ]]; then
+  CMD+=(-d "$DATA")
+fi
+
+# Execute and output to file or stdout
+"${CMD[@]}" > "$OUTPUT"
+
+# Check success
+if [ $? -eq 0 ]; then
+  echo -e "\nRequest completed successfully."
+else
+  echo -e "\nRequest failed."
+  exit 1
+fi
