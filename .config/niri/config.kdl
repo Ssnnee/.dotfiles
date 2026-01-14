@@ -1,0 +1,215 @@
+input {
+  keyboard {
+    xkb {
+      layout "fr"
+      variant "optimot_ansi_18"
+      options "caps:escape"
+    }
+    repeat-delay 200
+    repeat-rate 90
+  }
+
+  touchpad {
+    tap
+    dwt
+    natural-scroll
+  }
+}
+
+output "eDP-1" {
+  mode "1920x1080"
+  scale 1.0
+  position x=0 y=0
+}
+
+layout {
+  gaps 4
+
+  center-focused-column "never"
+
+  preset-column-widths {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.1
+  }
+
+  default-column-width { proportion 0.5; }
+  focus-ring {
+    on
+    width 2
+    active-color "#7fc8ff"
+
+    inactive-color "#505050"
+  }
+
+  border {
+    // The settings are the same as for the focus ring.
+    // If you enable the border, you probably want to disable the focus ring.
+    off
+    width 2
+    active-color "#ffc87f"
+    inactive-color "#505050"
+
+    urgent-color "#9b0000"
+
+  }
+}
+
+// Add lines like this to spawn processes at startup.
+// Note that running niri as a session supports xdg-desktop-autostart,
+// which may be more convenient to use.
+// See the binds section below for more spawn examples.
+
+// This line starts waybar, a commonly used bar for Wayland compositors.
+spawn-at-startup "waybar"
+spawn-at-startup "waypaper" "--restore"
+spawn-at-startup "swayidle" "-w" \
+    "timeout" "300" "swaylock -f -c 000000" \
+    "timeout" "600" "niri msg action power-off-monitors" \
+    "before-sleep" "swaylock -f -c 000000"
+
+// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
+// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
+
+hotkey-overlay {
+  // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
+  // skip-at-startup
+}
+
+// Now windows decoration
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// You can also set this to null to disable saving screenshots to disk.
+// screenshot-path null
+
+// Animation settings.
+// The wiki explains how to configure individual animations:
+// https://yalter.github.io/niri/Configuration:-Animations
+animations {
+  off
+  slowdown 0.3
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
+// This defines the order and names
+workspace "1"
+workspace "2"
+workspace "3"
+workspace "4"
+workspace "5"
+workspace "6"
+workspace "7"
+workspace "8"
+workspace "9"
+
+binds {
+  // Keys
+  Mod+Shift+Slash { show-hotkey-overlay; }
+
+  // Apps
+  Mod+Return { spawn "st"; }
+  Mod+D { spawn "rofi" "-modi" "drun,run" "-show" "drun"; }
+
+  Mod+Shift+B { spawn "brave"; }
+  Mod+Shift+P { spawn "pcmanfm"; }
+  Mod+Shift+T { spawn "telegram-desktop"; }
+  Mod+Shift+F { spawn "flatpak" "run" "app.zen_browser.zen"; }
+  Mod+P { spawn "passmenu"; }
+  Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+
+  // Actions
+  Mod+O repeat=false { toggle-overview; }
+  Mod+Q repeat=false { close-window; }
+  Mod+Shift+E { quit; } // Directly quits niri (no sway-nag)
+
+  // Focus (Vim keys)
+  Mod+H { focus-column-left; }
+  Mod+L { focus-column-right; }
+  Mod+J { focus-window-down; }
+  Mod+K { focus-window-up; }
+
+  // Focus (Arrow keys)
+  Mod+Left  { focus-column-left; }
+  Mod+Right { focus-column-right; }
+  Mod+Down  { focus-window-down; }
+  Mod+Up    { focus-window-up; }
+
+  // Move Windows
+  Mod+Shift+H { move-column-left; }
+  Mod+Shift+L { move-column-right; }
+  Mod+Shift+J { move-window-down; }
+  Mod+Shift+K { move-window-up; }
+  Mod+Shift+Page_Down { move-workspace-down; }
+  Mod+Shift+Page_Up   { move-workspace-up; }
+  Mod+Shift+U         { move-workspace-down; }
+  Mod+Shift+I         { move-workspace-up; }
+  Mod+V allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+
+
+  // Niri Specific: Window Sizing/Consume
+  Mod+R { maximize-column; }
+  Mod+F { fullscreen-window; }
+  Mod+Space { switch-focus-between-floating-and-tiling; }
+  Mod+Shift+Space { toggle-window-floating; }
+  Mod+C { center-column; }
+  Mod+W { toggle-column-tabbed-display; }
+
+  // Mod+Shift+R { power-off-monitors; }
+  // Workspaces (Using 1-9 to replace your hex codes)
+  // Note: You must press Mod+Number to focus, Mod+Shift+Number to move
+  Mod+GuillemotLeft  { focus-workspace 1; }
+  Mod+GuillemotRight { focus-workspace 2; }
+  Mod+Quotedbl       { focus-workspace 3; }
+  Mod+Minus          { focus-workspace 4; }
+  Mod+Plus           { focus-workspace 5; }
+  Mod+Asterisk       { focus-workspace 6; }
+  Mod+Slash          { focus-workspace 7; }
+  Mod+Equal          { focus-workspace 8; }
+  Mod+ParenLeft      { focus-workspace 9; }
+  Mod+ParenRight     { focus-workspace 10; }
+
+  Mod+Shift+GuillemotLeft  { move-column-to-workspace 1; }
+  Mod+Shift+GuillemotRight { move-column-to-workspace 2; }
+  Mod+Shift+Quotedbl       { move-column-to-workspace 3; }
+  Mod+Shift+Minus          { move-column-to-workspace 4; }
+  Mod+Shift+Plus           { move-column-to-workspace 5; }
+  Mod+Shift+Asterisk       { move-column-to-workspace 6; }
+  // Mod+Shift+Slash          { move-column-to-workspace 7; }
+  Mod+Shift+Equal          { move-column-to-workspace 8; }
+  Mod+Shift+ParenLeft      { move-column-to-workspace 9; }
+  Mod+Shift+ParenRight     { move-column-to-workspace 10; }
+
+  // Mouse resize
+  Mod+WheelScrollDown      { focus-column-right; }
+  Mod+WheelScrollUp        { focus-column-left; }
+  Mod+Ctrl+WheelScrollDown { move-column-right; }
+  Mod+Ctrl+WheelScrollUp   { move-column-left; }
+
+  // Volume & Brightness (Piping to WOB)
+  XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+  XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+  XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+  // Screenshots
+  // Niri has a different screenshot philosophy, we use native or grim
+  Print { screenshot; } // Interactive Niri screenshot UI
+  Mod+Shift+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; } // Area to clipboard
+  Ctrl+Print { screenshot-screen; }
+  Alt+Print { screenshot-window; }
+}

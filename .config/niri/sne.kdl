@@ -1,0 +1,185 @@
+// --- Input Configuration ---
+input {
+    keyboard {
+        xkb {
+            layout "fr"
+            variant "optimot_ansi_18"
+            options "caps:escape"
+        }
+        repeat-delay 200
+        repeat-rate 90
+    }
+
+    touchpad {
+        tap
+        dwt
+        natural-scroll
+    }
+
+    mouse {
+        // accel-profile "flat"
+    }
+}
+
+// --- Output (Wallpaper & Monitors) ---
+// Niri does not handle wallpaper natively. We spawn swaybg below.
+output "eDP-1" {
+    mode "1920x1080"
+    scale 1.0
+    position x=0 y=0
+}
+
+// --- Layout & Theming ---
+layout {
+    gaps 6 // Adjusted for corner radius feel
+    center-focused-column "never" // behaves more like sway
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 1.0
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        on
+        width 2
+        active-color "#33ccff"
+        inactive-color "#595959"
+    }
+
+    border {
+        off // Niri usually uses focus-ring, but you can enable border if preferred
+    }
+
+    // Niri creates the socket for xwayland-satellite automatically if installed
+}
+
+// --- Autostart ---
+spawn-at-startup "xwayland-satellite" // ESSENTIAL for 'st' and X11 apps
+spawn-at-startup "swaybg" "-i" "/home/sne/Pictures/wallpapers/wp3126191-adele-2018-wallpapers.jpg" "-m" "fill"
+spawn-at-startup "waybar"
+spawn-at-startup "nm-applet"
+spawn-at-startup "swaync"
+spawn-at-startup "/usr/libexec/polkit-gnome-authentication-agent-1"
+spawn-at-startup "swayidle" "-w" \
+    "timeout" "300" "swaylock -f -c 000000" \
+    "timeout" "600" "niri msg action power-off-monitors" \
+    "before-sleep" "swaylock -f -c 000000"
+
+// Initialize WOB pipe
+spawn-at-startup "sh" "-c" "mkfifo $XDG_RUNTIME_DIR/wob.pipe && tail -f $XDG_RUNTIME_DIR/wob.pipe | wob --config ./wob/wob.ini"
+
+
+// --- Keybindings ---
+binds {
+    // Keys
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // Apps
+    Mod+Return { spawn "st"; }
+    Mod+D { spawn "rofi" "-modi" "drun,run" "-show" "drun"; }
+    Mod+Shift+B { spawn "brave"; }
+    Mod+Shift+P { spawn "pcmanfm"; }
+    Mod+Shift+T { spawn "telegram-desktop"; }
+    Mod+Shift+F { spawn "flatpak" "run" "app.zen_browser.zen"; }
+    Mod+P { spawn "passmenu"; }
+
+    // Actions
+    Mod+Shift+Q { close-window; }
+    Mod+Shift+E { quit; } // Directly quits niri (no sway-nag)
+
+    // Focus (Vim keys)
+    Mod+H { focus-column-left; }
+    Mod+L { focus-column-right; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
+
+    // Focus (Arrow keys)
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+
+    // Move Windows
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+L { move-column-right; }
+    Mod+Shift+J { move-window-down; }
+    Mod+Shift+K { move-window-up; }
+
+    // Niri Specific: Window Sizing/Consume
+    Mod+F { fullscreen-window; }
+    Mod+Space { switch-focus-between-floating-and-tiling; }
+    Mod+Shift+Space { toggle-window-floating; }
+    Mod+C { center-column; }
+
+    // Workspaces (Using 1-9 to replace your hex codes)
+    // Note: You must press Mod+Number to focus, Mod+Shift+Number to move
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+Shift+0 { move-column-to-workspace 10; }
+
+    // Mouse resize
+    Mod+WheelScrollDown      { focus-column-right; }
+    Mod+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+WheelScrollUp   { move-column-left; }
+
+    // Volume & Brightness (Piping to WOB)
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn "sh" "-c" "pamixer --allow-boost -ui 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.pipe";
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn "sh" "-c" "pamixer --allow-boost -ud 2 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.pipe";
+    }
+    XF86AudioMute allow-when-locked=true { spawn "pamixer" "--toggle-mute"; }
+    XF86MonBrightnessUp   {
+        spawn "sh" "-c" "brightnessctl set +5% && brightnessctl get | awk '{print int($1/255*100)}' > $XDG_RUNTIME_DIR/wob.pipe";
+    }
+    XF86MonBrightnessDown {
+        spawn "sh" "-c" "brightnessctl set 5%- && brightnessctl get | awk '{print int($1/255*100)}' > $XDG_RUNTIME_DIR/wob.pipe";
+    }
+
+    // Screenshots
+    // Niri has a different screenshot philosophy, we use native or grim
+    Print { screenshot; } // Interactive Niri screenshot UI
+    Ctrl+Print { spawn "grim" "-"; } // Fullscreen to clipboard (simplified)
+    Mod+Shift+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; } // Area to clipboard
+}
+
+// --- Window Rules ---
+// Niri doesn't support imperative "exec on workspace" easily.
+// We use rules to force them there when they open.
+window-rule {
+    match app-id="^st$"
+    open-on-workspace 1
+}
+
+window-rule {
+    match app-id="zen"
+    open-on-workspace 2
+}
+
+window-rule {
+    match app-id="org.telegram.desktop"
+    open-on-workspace 4
+}
