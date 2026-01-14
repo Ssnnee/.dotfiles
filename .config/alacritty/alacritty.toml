@@ -1,0 +1,65 @@
+[window]
+padding = { x = 2, y = 2 } # Matches your borderpx = 2
+dynamic_title = true
+opacity = 0.9 # Matches your alpha = 0.9
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+normal = { family = "Iosevka", style = "Regular" }
+size = 18.0 # Adjusted: st's 24px is roughly 18pt in Alacritty
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 800 # Matches your blinktimeout = 800
+
+[colors.primary]
+background = "#181818" # Matches your color 258
+foreground = "#cdd6f4" # Matches your color 259
+
+[colors.cursor]
+text = "#222222"
+cursor = "#f9e2af" # Matches your yellow cursor
+
+[colors.normal]
+black   = "#000000"
+red     = "#f38ba8"
+green   = "#a5aaa7"
+yellow  = "#f9e2af"
+blue    = "#888888"
+magenta = "#999999"
+cyan    = "#94e2d5"
+white   = "#cdd6f4"
+
+[colors.bright]
+black   = "#333333"
+red     = "#f38ba8"
+green   = "#a5aaa7"
+yellow  = "#f9e2af"
+blue    = "#888888"
+magenta = "#999999"
+cyan    = "#94e2d5"
+white   = "#e4e4e4"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Alt"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Alt"
+action = "Paste"
+
+# Optional: Keep the standard Linux way as well
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "Paste"
