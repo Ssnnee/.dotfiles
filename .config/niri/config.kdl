@@ -14,6 +14,7 @@ input {
     dwt
     natural-scroll
   }
+  focus-follows-mouse max-scroll-amount="0%"
 }
 
 output "eDP-1" {
@@ -36,7 +37,7 @@ layout {
   default-column-width { proportion 0.5; }
   focus-ring {
     on
-    width 2
+    width 1.5
     active-color "#7fc8ff"
 
     inactive-color "#505050"
@@ -61,8 +62,9 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
+// spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "waybar"
-spawn-at-startup "waypaper" "--restore"
+spawn-at-startup "waypaper" "--random"
 spawn-at-startup "swayidle" "-w" \
     "timeout" "300" "swaylock -f -c 000000" \
     "timeout" "600" "niri msg action power-off-monitors" \
@@ -71,10 +73,10 @@ spawn-at-startup "swayidle" "-w" \
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
-hotkey-overlay {
-  // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-  // skip-at-startup
-}
+// hotkey-overlay {
+//   // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
+//   // skip-at-startup
+// }
 
 // Now windows decoration
 prefer-no-csd
@@ -88,9 +90,16 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // The wiki explains how to configure individual animations:
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
-  off
+  on
   slowdown 0.3
 }
+
+
+// This defines the order and names
+workspace "1"
+workspace "2"
+workspace "3"
+workspace "4"
 
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
@@ -103,28 +112,39 @@ window-rule {
     clip-to-geometry true
 }
 
-// This defines the order and names
-workspace "1"
-workspace "2"
-workspace "3"
-workspace "4"
-workspace "5"
-workspace "6"
-workspace "7"
-workspace "8"
-workspace "9"
+debug {
+  honor-xdg-activation-with-invalid-serial
+}
+
+window-rule {
+    match app-id="zen"
+    match title="Zen"
+    open-on-workspace "2"
+    open-maximized true
+}
+window-rule {
+    match app-id="org.telegram.desktop"
+    open-on-workspace "4"
+    open-maximized true
+}
+
+// Set the overview wallpaper on the backdrop.
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
+}
 
 binds {
   // Keys
   Mod+Shift+Slash { show-hotkey-overlay; }
 
   // Apps
-  Mod+Return { spawn "st"; }
+  Mod+Return { spawn "alacritty"; }
   Mod+D { spawn "rofi" "-modi" "drun,run" "-show" "drun"; }
 
   Mod+Shift+B { spawn "brave"; }
   Mod+Shift+P { spawn "pcmanfm"; }
-  Mod+Shift+T { spawn "telegram-desktop"; }
+  Mod+Shift+T { spawn "flatpak" "run" "org.telegram.desktop"; }
   Mod+Shift+F { spawn "flatpak" "run" "app.zen_browser.zen"; }
   Mod+P { spawn "passmenu"; }
   Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }

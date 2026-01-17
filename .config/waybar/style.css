@@ -1,151 +1,84 @@
 * {
-  font-family: "UbuntuMono Nerd Font";
-  font-size: 14px;
-  min-height: 0;
+    /* Ensure this matches your installed Nerd Font */
+    font-family: "UbuntuMono Nerd Font", "Iosevka";
+    font-size: 14px;
+    min-height: 0;
 }
 
 window#waybar {
-  background: #000000;
-  /* background: #1e1e2e; */
-  color: #cdd6f4;
-  padding: 2px 6px;
+    background: rgba(0, 0, 0, 0.9); /* Slight transparency looks better */
+    color: #cdd6f4;
 }
 
-window#waybar.hidden {
-  opacity: 0.2;
-}
+/* --- Workspaces Style --- */
 
-#window {
-  margin: 0 6px;
-  padding: 2px 10px;
-  background-color: transparent;
-  color: #cdd6f4;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 6px;
-}
-
-button {
-  border: none;
-  padding: 0;
-  box-shadow: none;
+#workspaces {
+    background: #181818;
+    margin: 2px;
+    padding: 0 2px;
+    border-radius: 8px;
 }
 
 #workspaces button {
-  margin: 0 0;
-  padding: 0 0;
-  /* background: #1e1e2e; */
-  background: #000000;
-  color: #cdd6f4;
-  /* color: #6c7086; */
+    padding: 0 2px;
+    color: #6c7086; /* Dimmed color for inactive workspaces */
+    background: transparent;
+    transition: all 0.3s ease;
 }
 
 #workspaces button.focused {
-  background-color: #89b4fa;
-  color: #1e1e2e;
-}
-
-#workspaces button.active {
-  background-color: #89b4fa;
-  color: #1e1e2e;
+    color: #89b4fa; /* Primary Blue for the active dot/icon */
 }
 
 #workspaces button:hover {
-  background: #45475a;
-  color: #cdd6f4;
+    background: rgba(137, 180, 250, 0.1);
+    color: #cdd6f4;
 }
 
 #workspaces button.urgent {
-  background-color: #f38ba8;
-  color: #1e1e2e;
-  animation: urgent-blink 1s ease-in-out infinite;
+    color: #f38ba8;
 }
 
-@keyframes urgent-blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.7; }
-  100% { opacity: 1; }
-}
+/* --- Module Styling --- */
 
-#custom-os_button {
-  font-size: 24px;
-  padding-left: 12px;
-  padding-right: 20px;
-  color: #cba6f7;
-}
-
+/* Removed the blocky background from all modules for a cleaner look */
 #clock,
 #battery,
 #cpu,
 #memory,
-#disk,
-#temperature,
-#backlight,
 #network,
+#bluetooth,
 #pulseaudio,
-#wireplumber,
-#custom-media,
 #tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#mpd {
-  margin: 2px 3px;
-  padding: 1px 10px;
-  background-color: #313244;
-  color: #cdd6f4;
-  border-radius: 6px;
+#mode {
+    padding: 0 8px;
+    margin: 4px 2px;
+    background-color: transparent; /* No more boxes unless focused */
+    color: #cdd6f4;
 }
 
 #clock {
-  font-size: 14px;
-  font-weight: bold;
-  background-color: #89b4fa;
-  color: #1e1e2e;
-  margin-left: 6px;
+    font-weight: bold;
+    color: #89b4fa; /* Blue text instead of blue background */
 }
 
-#battery.charging,
-#battery.plugged {
-  background-color: #a6e3a1;
-  color: #1e1e2e;
+/* Tray Styling */
+#tray {
+    border-radius: 8px;
 }
 
-#battery.warning:not(.charging),
-#battery.critical:not(.charging) {
-  background-color: #f9e2af;
-  color: #1e1e2e;
-  animation: battery-blink 1s linear infinite alternate;
-}
-
-@keyframes battery-blink {
-  to {
-    background-color: #f38ba8;
-    color: #1e1e2e;
-  }
-}
+/* Status specific colors (keeping these for visibility) */
+#battery.charging { color: #a6e3a1; }
+#battery.warning { color: #f9e2af; }
+#battery.critical { color: #f38ba8; }
 
 #network.disconnected {
-  background-color: #f38ba8;
-  color: #1e1e2e;
+    color: #f38ba8;
 }
 
-#temperature.critical {
-  background-color: #f38ba8;
-  color: #1e1e2e;
-}
-
-#idle_inhibitor.activated {
-  background-color: #fab387;
-  color: #1e1e2e;
-}
-
-#tray > .passive {
-  -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: #f38ba8;
-  color: #1e1e2e;
+/* Mode (Niri Resize/Normal mode) */
+#mode {
+    background: #f9e2af;
+    color: #1e1e2e;
+    border-radius: 4px;
 }

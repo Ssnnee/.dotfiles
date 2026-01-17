@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 25,
+  "height": 26,
   "spacing": 0,
   "modules-left": [
     "niri/workspaces",
@@ -12,16 +12,19 @@
     "clock"
   ],
   "modules-right": [
+    "group/tray-expander",
     "pulseaudio",
     "cpu",
     "memory",
     "battery",
-    "tray"
+    "bluetooth",
+    "network"
   ],
 
   "niri/workspaces": {
     "format": "{icon}",
     "format-icons": {
+      "default": "",
       "1": "1",
       "2": "2",
       "3": "3",
@@ -31,7 +34,8 @@
       "7": "7",
       "8": "8",
       "9": "9",
-      "10": "0"
+      "10": "10",
+      "active": "󱓻"
     }
   },
 
@@ -44,10 +48,52 @@
     "spacing": 10
   },
 
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 200,
+      "children-class": "tray-group-item"
+    },
+    "modules": ["custom/expand-icon", "tray"]
+  },
+  "custom/expand-icon": {
+    "format": "",
+    "tooltip": false,
+    "on-scroll-up": "",
+    "on-scroll-down": "",
+    "on-scroll-left": "",
+    "on-scroll-right": ""
+  },
+
+  "network": {
+    "format-wifi": " ",
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "󰖪 ",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
+    "on-click": "networkmanager_dmenu"
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "format-no-controller": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "blueman-manager"
+  },
+
   "clock": {
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%H:%M}",
-    "format-alt": "{:%Y-%m-%d}"
+    "format": "{:L%A %H:%M}",
+    "format-alt": "{:L%d %B W%V %Y}",
+    "tooltip": false,
+    // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    // "format": "{:%H:%M}",
+    // "format-alt": "{:%Y-%m-%d}"
   },
 
   "pulseaudio": {
@@ -66,12 +112,12 @@
   },
 
   "cpu": {
-    "format": "{usage}%  ",
+    "format": "{usage}% 󰻠",
     "tooltip": false
   },
 
   "memory": {
-    "format": "{}% "
+    "format": "{}%   "
   },
 
   "battery": {
@@ -80,20 +126,12 @@
       "critical": 15
     },
     "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 󱐋",
+    // "format-charging": "{capacity}% 󱐋",
     "format-plugged": "{capacity}% ",
-    "format-icons": ["", "", "", "", ""]
-  },
-
-  "custom/media": {
-    "format": "{icon} {}",
-    "return-type": "json",
-    "max-length": 40,
+    // "format-icons": ["", "", "", "", ""]
     "format-icons": {
-      "spotify": "",
-      "default": "󰎈"
-    },
-    "escape": true,
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    }
   }
 }

@@ -2,20 +2,18 @@ configuration {
   display-drun: "Applications:";
   display-window: "Windows:";
   drun-display-format: "{name}";
-  font: "JetBrainsMono Nerd Font Medium 10";
+  font: "JetBrainsMono Medium 10"; // Updated font to match your terminal/bar
+  show-icons: true;
 }
 
 @theme "/dev/null"
 
 * {
-  // bg: #1E1E2E99;
-  bg: #000000;
-  bg-alt: #585b7066;
-  bg-selected: #31324466;
-
-  fg: #cdd6f4;
-  fg-alt: #7f849c;
-
+  bg: #000000;           /* Pure black background */
+  bg-alt: #181818;       /* Deep grey for input/hover */
+  blue: #89b4fa;         /* The Blue from your Waybar clock */
+  fg: #cdd6f4;           /* Off-white text */
+  fg-alt: #6c7086;       /* Muted grey for inactive text */
 
   border: 0;
   margin: 0;
@@ -24,19 +22,60 @@ configuration {
 }
 
 window {
-  width: 30%;
+  width: 35%;
   background-color: @bg;
+  border: 2px;
+  border-color: @blue;   /* Thin blue border to match the aesthetic */
+  border-radius: 10px;
+}
+
+mainbox {
+  children: [inputbar, listview];
+  background-color: @bg;
+  padding: 10px;
+}
+
+inputbar {
+  children: [prompt, entry];
+  background-color: @bg;
+  margin: 0 0 10px 0;
+}
+
+prompt {
+  enabled: true;
+  padding: 12px;
+  background-color: @blue;
+  text-color: @bg;       /* Dark text on blue background */
+  border-radius: 6px 0 0 6px;
+}
+
+entry {
+  padding: 12px;
+  background-color: @bg-alt;
+  text-color: @fg;
+  border-radius: 0 6px 6px 0;
+}
+
+listview {
+  background-color: @bg;
+  columns: 1;
+  lines: 8;
+  spacing: 5px;
+  fixed-height: true;
 }
 
 element {
-  padding: 8 12;
+  padding: 8px;
   background-color: transparent;
   text-color: @fg-alt;
+  border-radius: 6px;
 }
 
 element selected {
   text-color: @fg;
-  background-color: @bg-selected;
+  background-color: @bg-alt;
+  // border: 0 0 0 4px;     /* Blue accent line on the left */
+  border-color: @blue;
 }
 
 element-text {
@@ -46,36 +85,7 @@ element-text {
 }
 
 element-icon {
-  size: 40;
-  padding: 0 10 0 0;
+  size: 32;
+  padding: 0 10px 0 0;
   background-color: transparent;
-}
-
-entry {
-  padding: 12;
-  background-color: @bg-alt;
-  text-color: @fg;
-}
-
-inputbar {
-  children: [prompt, entry];
-  background-color: @bg;
-}
-
-listview {
-  background-color: @bg;
-  columns: 1;
-  lines: 6;
-}
-
-mainbox {
-  children: [inputbar, listview];
-  background-color: @bg;
-}
-
-prompt {
-  enabled: true;
-  padding: 12 0 0 12;
-  background-color: @bg-alt;
-  text-color: @fg;
 }
