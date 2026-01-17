@@ -1,25 +1,41 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# This script allow to selected a project and open in neovim withing a tmux
+# session or switch to that session if it was already created
 
+color="bg+:#181818,bg:#000000,spinner:#89b4fa,hl:#89b4fa,fg:#cdd6f4,header:#89b4fa,info:#89b4fa,pointer:#89b4fa,marker:#89b4fa,prompt:#89b4fa,hl+:#89b4fa"
+# 1. Select the directory
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/.coding/  -mindepth 1 -maxdepth 1 -type d | fzf)
+    # Combined your coding and config dirs
+    selected=$(find ~/.coding ~/.config -mindepth 1 -maxdepth 1 -type d | fzf --color=$color)
 fi
 
 if [[ -z $selected ]]; then
     exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+# 2. Prepare session name (replace dots/spaces with underscores)
+selected_name=$(basename "$selected" | tr . _ | tr ' ' _)
 tmux_running=$(pgrep tmux)
 
+# 3. Logic to create or switch
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
+    # Tmux isn't running at all: Start tmux and run nvim
+    tmux new-session -s "$selected_name" -c "$selected" "nvim ."
     exit 0
 fi
 
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
+if ! tmux has-session -t="$selected_name" 2> /dev/null; then
+    # Session doesn't exist: Create it detached and start nvim inside
+    tmux new-session -ds "$selected_name" -c "$selected" "nvim ."
 fi
 
-tmux switch-client -t $selected_name
+# 4. Attach/Switch
+if [[ -z $TMUX ]]; then
+    # We are in a normal terminal: Attach to the session
+    tmux attach-session -t "$selected_name"
+else
+    # We are already inside tmux: Switch to the session
+    tmux switch-client -t "$selected_name"
+fi

@@ -2,6 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
 export MANPAGER="nvim +Man!"
 export PATH="$HOME/.config/scripts:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 
 # Theme
@@ -27,7 +28,8 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-bindkey -s '^f' '~/.config/scripts/fzf_and_vim\n'
+# bindkey -s '^f' '~/.config/scripts/fzf_and_vim\n'
+bindkey -s '^f' '~/.config/scripts/tmux-sessionizer\n'
 
 eval "$(fzf --zsh)"
 
