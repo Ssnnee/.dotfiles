@@ -11,6 +11,7 @@ alias h='cd ~/'
 alias k='cd ~/.personal'
 alias i='nvim ~/.config/i3/config'
 alias sw='nvim ~/.config/sway/config'
+alias ni='nvim ~/.config/niri/config.kdl'
 alias s='cd ~/.config/scripts/'
 alias ..='cd ..'
 alias c="cd ~/.config"
