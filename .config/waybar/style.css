@@ -1,5 +1,6 @@
 @import "colors.css";
 
+
 * {
     font-family: "UbuntuMono Nerd Font", "Iosevka";
     font-size: 14px;
@@ -7,11 +8,10 @@
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0.9); /* keep slight transparency */
-    color: @on_background;
+    background-color: alpha(@surface_container, 0.95);
+    color: @on_surface;
 }
 
-/* --- Workspaces Style --- */
 #workspaces {
     background: @surface_container_low;
     margin: 2px;
@@ -23,23 +23,25 @@ window#waybar {
     padding: 0 2px;
     color: @on_surface_variant;
     background: transparent;
-    transition: all 0.3s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #workspaces button.focused {
     color: @primary;
+    /* background: alpha(@primary_container, 0.3); */
 }
 
 #workspaces button:hover {
-    background: rgba(159, 202, 252, 0.1); /* primary with transparency */
-    color: @on_background;
+    /* background: alpha(@primary, 0.12); */
+    color: @on_primary_container;
 }
 
 #workspaces button.urgent {
     color: @error;
+    /* background: alpha(@error_container, 0.2); */
 }
 
-/* --- Module Styling --- */
+/* Modules */
 #clock,
 #battery,
 #cpu,
@@ -48,36 +50,42 @@ window#waybar {
 #bluetooth,
 #pulseaudio,
 #tray,
+#custom-dark-light-toggle,
 #mode {
     padding: 0 8px;
     margin: 4px 2px;
-    background-color: transparent;
-    color: @on_background;
+    color: @on_surface;
 }
 
 #clock {
-    font-weight: bold;
     color: @primary;
+    font-weight: bold;
 }
 
-/* Tray Styling */
 #tray {
+    background: @surface_container_high;
     border-radius: 8px;
 }
 
-/* Status specific colors */
-#battery.charging { color: @primary; }
-#battery.warning { color: @tertiary; }
-#battery.critical { color: @error; }
+#battery.charging {
+    color: @primary;
+}
+#battery.warning {
+    color: @tertiary;
+}
+#battery.critical {
+    color: @on_error_container;
+    background: @error_container;
+    border-radius: 4px;
+}
 
 #network.disconnected {
     color: @error;
 }
 
-/* Mode (Niri Resize/Normal mode) */
 #mode {
-    background: @tertiary;
-    color: @on_tertiary;
+    background: @tertiary_container;
+    color: @on_tertiary_container;
     border-radius: 4px;
+    font-weight: bold;
 }
-
