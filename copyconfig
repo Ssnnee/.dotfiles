@@ -14,7 +14,7 @@ print_error() {
 }
 
 repo_path=~/.coding/.dotfiles
-app_list="cava wob niri matugen fuzzel ghostty yazi dunst kitty picom waybar tmux sway swaylock aliasrc alacritty neofetch  rofi zathura scripts hypr i3 awesome"
+app_list="cava waypaper wob niri matugen fuzzel ghostty yazi dunst kitty waybar tmux sway swaylock aliasrc alacritty rofi zathura scripts hypr"
 
 for app in $app_list; do
     cp -r ~/.config/"$app" ~/.coding/.dotfiles/.config/
@@ -27,4 +27,15 @@ else
     print_error "Some forder does not exist anymore"
 fi
 
-cp -r ~/.coding/st/config.h ~/.coding/.dotfiles/.config/st/
+# Copy gtk.css file
+
+if cp -r ~/.config/gtk-3.0/gtk.css $repo_path/.config/gtk-3.0/; then
+    print_success "GTK config copied successfully"
+else
+    print_error "GTK config does not exist anymore"
+fi
+if cp -r ~/.config/gtk-4.0/gtk.css $repo_path/.config/gtk-4.0/; then
+    print_success "GTK config copied successfully"
+else
+    print_error "GTK config does not exist anymore"
+fi
