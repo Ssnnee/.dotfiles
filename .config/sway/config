@@ -9,6 +9,8 @@ client.focused_inactive #173f4f #595959 #595959 #595959 #00a489
 client.unfocused        #595959 #595959 #595959 #595959 #595959
 client.urgent           #ff5555 #ff5555 #ff5555 #ff5555 #ff5555
 
+gaps top 30
+
 # dim_inactive_colors.unfocused #173f4f
 # dim_inactive_colors.urgent #900000FF
 
@@ -53,7 +55,6 @@ input type:touch {
 bindsym $mod+tab workspace next_on_output
 bindsym $mod+Shift+tab workspace prev_on_output
 
-# before-sleep $screenlock
 
 # blur on
 # blur_xray off
@@ -277,7 +278,7 @@ exec swaymsg "workspace 1; exec st;"
 exec swaymsg "workspace 3; exec st;"
 exec swaymsg "workspace 2; exec flatpak run app.zen_browser.zen;"
 exec swaymsg "workspace 4; exec flatpak run org.telegram.desktop ;"
-exec swaymsg "workspace 8; exec kdeconnect-app;"
+# exec swaymsg "workspace 8; exec kdeconnect-app;"
 
 # System mode menu
 set $mode_system "(l) lock, (e) logout, (r) reboot, (s) suspend, (Shift+s) shutdown"
@@ -313,10 +314,17 @@ exec_always {
 # Lockscreen configuration
 set $screenlock 'swaylock --config ~/.config/swaylock/config'
 # Idle configuration
+      # timeout 600 'systemctl suspend' \
 exec swayidle -w \
-       timeout 300 $screenlock \
-       timeout 600 'systemctl suspend' \
-       resume 'swaymsg "output * power on"' \
+         timeout 300 $screenlock \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep $screenlock
+
+# exec swayidle -w \
+#        timeout 300 $screenlock \
+#        timeout 400 'swaymsg "output * power off"' \
+#        resume 'swaymsg "output * power on"' \
 
 exec /usr/libexec/polkit-gnome-authentication-agent-1
-# include /etc/sway/config.d/*
+include /etc/sway/config.d/*
+include colors.conf

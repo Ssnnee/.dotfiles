@@ -5,6 +5,7 @@ indicator-thickness=15
 indicator-radius=150
 
 image=/home/sne/Pictures/wallpapers/swayfx_mascot_1920x1080.png
+scaling=fill
 
 clock
 

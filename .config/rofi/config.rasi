@@ -1,20 +1,21 @@
+@import "colors.rasi"
+
 configuration {
   display-drun: "Applications:";
   display-window: "Windows:";
   drun-display-format: "{name}";
-  font: "JetBrainsMono Medium 10"; // Updated font to match your terminal/bar
+  font: "JetBrainsMono Medium 10";
   show-icons: true;
 }
 
 @theme "/dev/null"
 
 * {
-  bg: #000000;           /* Pure black background */
-  bg-alt: #181818;       /* Deep grey for input/hover */
-  blue: #89b4fa;         /* The Blue from your Waybar clock */
-  fg: #cdd6f4;           /* Off-white text */
-  fg-alt: #6c7086;       /* Muted grey for inactive text */
-
+  bg: @surface;
+  bg-alt: @surface-container;
+  blue: @primary;
+  fg: @on-surface;
+  fg-alt: @on-surface-variant;
   border: 0;
   margin: 0;
   padding: 0;
@@ -25,7 +26,7 @@ window {
   width: 35%;
   background-color: @bg;
   border: 2px;
-  border-color: @blue;   /* Thin blue border to match the aesthetic */
+  border-color: @blue;
   border-radius: 10px;
 }
 
@@ -45,7 +46,7 @@ prompt {
   enabled: true;
   padding: 12px;
   background-color: @blue;
-  text-color: @bg;       /* Dark text on blue background */
+  text-color: @on-primary;
   border-radius: 6px 0 0 6px;
 }
 
@@ -73,9 +74,15 @@ element {
 
 element selected {
   text-color: @fg;
-  background-color: @bg-alt;
-  // border: 0 0 0 4px;     /* Blue accent line on the left */
+  background-color: @primary-container;
   border-color: @blue;
+
+}
+
+element selected {
+  text-color: @on-primary-container;
+  background-color: @primary-container;
+  border-color: @primary;
 }
 
 element-text {

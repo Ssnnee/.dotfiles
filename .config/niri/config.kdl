@@ -36,7 +36,7 @@ layout {
 
   default-column-width { proportion 0.5; }
   focus-ring {
-    on
+    off
     width 1.5
     active-color "#7fc8ff"
 
@@ -46,7 +46,7 @@ layout {
   border {
     // The settings are the same as for the focus ring.
     // If you enable the border, you probably want to disable the focus ring.
-    off
+    on
     width 2
     active-color "#ffc87f"
     inactive-color "#505050"
@@ -54,6 +54,7 @@ layout {
     urgent-color "#9b0000"
 
   }
+  shadow {}
 }
 
 // Add lines like this to spawn processes at startup.
@@ -62,13 +63,16 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-// spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "waybar"
 spawn-at-startup "waypaper" "--random"
+// spawn-at-startup "swayidle" "-w" \
+//     "timeout" "300" "qs -c noctalia-shell ipc call lockScreen lock" \
+//     "timeout" "600" "niri msg action power-off-monitors" \
+//     "before-sleep" "qs -c noctalia-shell ipc call lockScreen lock"
 spawn-at-startup "swayidle" "-w" \
-    "timeout" "300" "swaylock -f -c 000000" \
+    "timeout" "300" "swaylock" \
     "timeout" "600" "niri msg action power-off-monitors" \
-    "before-sleep" "swaylock -f -c 000000"
+    "before-sleep" "swaylock"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -90,7 +94,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // The wiki explains how to configure individual animations:
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
-  on
+  off
   slowdown 0.3
 }
 
@@ -139,7 +143,10 @@ binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
 
   // Apps
-  Mod+Return { spawn "alacritty"; }
+  Mod+Return { spawn "st"; }
+  // Mod+D { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+  // Mod+S { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+  // Mod+D { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
   Mod+D { spawn "rofi" "-modi" "drun,run" "-show" "drun"; }
 
   Mod+Shift+B { spawn "brave"; }
@@ -153,6 +160,7 @@ binds {
   Mod+O repeat=false { toggle-overview; }
   Mod+Q repeat=false { close-window; }
   Mod+Shift+E { quit; } // Directly quits niri (no sway-nag)
+  Mod+E { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
 
   // Focus (Vim keys)
   Mod+H { focus-column-left; }
@@ -233,3 +241,6 @@ binds {
   Ctrl+Print { screenshot-screen; }
   Alt+Print { screenshot-window; }
 }
+
+// include "./noctalia.kdl"
+include "./colors.kdl"

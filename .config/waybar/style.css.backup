@@ -1,0 +1,84 @@
+* {
+    /* Ensure this matches your installed Nerd Font */
+    font-family: "UbuntuMono Nerd Font", "Iosevka";
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0.9); /* Slight transparency looks better */
+    color: #cdd6f4;
+}
+
+/* --- Workspaces Style --- */
+
+#workspaces {
+    background: #181818;
+    margin: 2px;
+    padding: 0 2px;
+    border-radius: 8px;
+}
+
+#workspaces button {
+    padding: 0 2px;
+    color: #6c7086; /* Dimmed color for inactive workspaces */
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+#workspaces button.focused {
+    color: #89b4fa; /* Primary Blue for the active dot/icon */
+}
+
+#workspaces button:hover {
+    background: rgba(137, 180, 250, 0.1);
+    color: #cdd6f4;
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+}
+
+/* --- Module Styling --- */
+
+/* Removed the blocky background from all modules for a cleaner look */
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#bluetooth,
+#pulseaudio,
+#tray,
+#mode {
+    padding: 0 8px;
+    margin: 4px 2px;
+    background-color: transparent; /* No more boxes unless focused */
+    color: #cdd6f4;
+}
+
+#clock {
+    font-weight: bold;
+    color: #89b4fa; /* Blue text instead of blue background */
+}
+
+/* Tray Styling */
+#tray {
+    border-radius: 8px;
+}
+
+/* Status specific colors (keeping these for visibility) */
+#battery.charging { color: #a6e3a1; }
+#battery.warning { color: #f9e2af; }
+#battery.critical { color: #f38ba8; }
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+/* Mode (Niri Resize/Normal mode) */
+#mode {
+    background: #f9e2af;
+    color: #1e1e2e;
+    border-radius: 4px;
+}

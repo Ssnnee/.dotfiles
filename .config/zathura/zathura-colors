@@ -3,36 +3,36 @@
 " -----------------------------------------------------------------------------
 
 " Colors
-set default-bg              "rgba(0, 51, 81, 1.0)"
-set default-fg              "#99ccfa"
+set default-bg              "{{colors.on_primary.default.rgba | set_alpha: 1.0}}"
+set default-fg              "{{colors.primary.default.hex}}"
 
-set statusbar-bg            "#003351"
-set statusbar-fg            "#99ccfa"
+set statusbar-bg            "{{colors.on_primary.default.hex}}"
+set statusbar-fg            "{{colors.primary.default.hex}}"
 
-set inputbar-bg             "#003351"
-set inputbar-fg             "#99ccfa"
+set inputbar-bg             "{{colors.on_primary.default.hex}}"
+set inputbar-fg             "{{colors.primary.default.hex}}"
 
-set notification-error-bg   "#690005"
-set notification-error-fg   "#ffb4ab"
+set notification-error-bg   "{{colors.on_error.default.hex}}"
+set notification-error-fg   "{{colors.error.default.hex}}"
 
-set notification-warning-bg "#cce5ff"
-set notification-warning-fg "#93000a"
+set notification-warning-bg "{{colors.primary_fixed.default.hex}}"
+set notification-warning-fg "{{colors.error_container.default.hex}}"
 
-set highlight-color         "#cce5ff"
-set highlight-active-color  "#99ccfa"
+set highlight-color         "{{colors.primary_fixed.default.hex}}"
+set highlight-active-color  "{{colors.primary_fixed_dim.default.hex}}"
 
-set completion-highlight-fg "#003351"
-set completion-highlight-bg #99ccfa""
+set completion-highlight-fg "{{colors.on_primary.default.hex}}"
+set completion-highlight-bg {{colors.primary.default.hex}}""
 
-set completion-bg           "#003351"
-set completion-fg           "#99ccfa"
+set completion-bg           "{{colors.on_primary.default.hex}}"
+set completion-fg           "{{colors.primary.default.hex}}"
 
-set notification-bg         "#003351"
-set notification-fg         "#99ccfa"
+set notification-bg         "{{colors.on_primary.default.hex}}"
+set notification-fg         "{{colors.primary.default.hex}}"
 
 set recolor                 "true"
-set recolor-lightcolor      "rgba(0, 51, 81, 1.0)"
-set recolor-darkcolor       "#99ccfa"
+set recolor-lightcolor      "{{colors.on_primary.default.rgba | set_alpha: 1.0}}"
+set recolor-darkcolor       "{{colors.primary.default.hex}}"
 set recolor-reverse-video   "true"
 set recolor-keephue         "true"
 

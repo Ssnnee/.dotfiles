@@ -1,19 +1,19 @@
+@import "colors.css";
+
 * {
-    /* Ensure this matches your installed Nerd Font */
     font-family: "UbuntuMono Nerd Font", "Iosevka";
     font-size: 14px;
     min-height: 0;
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0.9); /* Slight transparency looks better */
-    color: #cdd6f4;
+    background: rgba(0, 0, 0, 0.9); /* keep slight transparency */
+    color: @on_background;
 }
 
 /* --- Workspaces Style --- */
-
 #workspaces {
-    background: #181818;
+    background: @surface_container_low;
     margin: 2px;
     padding: 0 2px;
     border-radius: 8px;
@@ -21,27 +21,25 @@ window#waybar {
 
 #workspaces button {
     padding: 0 2px;
-    color: #6c7086; /* Dimmed color for inactive workspaces */
+    color: @on_surface_variant;
     background: transparent;
     transition: all 0.3s ease;
 }
 
 #workspaces button.focused {
-    color: #89b4fa; /* Primary Blue for the active dot/icon */
+    color: @primary;
 }
 
 #workspaces button:hover {
-    background: rgba(137, 180, 250, 0.1);
-    color: #cdd6f4;
+    background: rgba(159, 202, 252, 0.1); /* primary with transparency */
+    color: @on_background;
 }
 
 #workspaces button.urgent {
-    color: #f38ba8;
+    color: @error;
 }
 
 /* --- Module Styling --- */
-
-/* Removed the blocky background from all modules for a cleaner look */
 #clock,
 #battery,
 #cpu,
@@ -53,13 +51,13 @@ window#waybar {
 #mode {
     padding: 0 8px;
     margin: 4px 2px;
-    background-color: transparent; /* No more boxes unless focused */
-    color: #cdd6f4;
+    background-color: transparent;
+    color: @on_background;
 }
 
 #clock {
     font-weight: bold;
-    color: #89b4fa; /* Blue text instead of blue background */
+    color: @primary;
 }
 
 /* Tray Styling */
@@ -67,18 +65,19 @@ window#waybar {
     border-radius: 8px;
 }
 
-/* Status specific colors (keeping these for visibility) */
-#battery.charging { color: #a6e3a1; }
-#battery.warning { color: #f9e2af; }
-#battery.critical { color: #f38ba8; }
+/* Status specific colors */
+#battery.charging { color: @primary; }
+#battery.warning { color: @tertiary; }
+#battery.critical { color: @error; }
 
 #network.disconnected {
-    color: #f38ba8;
+    color: @error;
 }
 
 /* Mode (Niri Resize/Normal mode) */
 #mode {
-    background: #f9e2af;
-    color: #1e1e2e;
+    background: @tertiary;
+    color: @on_tertiary;
     border-radius: 4px;
 }
+
