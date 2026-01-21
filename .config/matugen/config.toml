@@ -70,3 +70,9 @@ post_hook = 'pkill -USR1 cava'
 [templates.fuzzel]
 input_path = '~/.config/fuzzel/fuzzel-colors.ini'
 output_path = '~/.config/fuzzel/colors.ini'
+
+[templates.neovim]
+input_path = '~/.coding/nvim/lua/sne/colors-template.lua'
+output_path = '~/.coding/nvim/lua/sne/colors.lua'
+post_hook = 'pkill -SIGUSR1 nvim'
+
