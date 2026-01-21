@@ -1,23 +1,30 @@
 #!/usr/bin/env bash
-# ~/.config/scripts/theme-toggle.sh
+set -euo pipefail
 
-MODE_FILE=~/.config/theme-mode
+MODE_FILE="$HOME/.config/theme-mode"
+GTK_THEME_DARK="Adwaita-dark"
+GTK_THEME_LIGHT="Adwaita-light"
 
-if [ -f "$MODE_FILE" ]; then
-    CURRENT_MODE=$(cat "$MODE_FILE")
-    if [ "$CURRENT_MODE" = "dark" ]; then
-        NEW_MODE="light"
-    else
-        NEW_MODE="dark"
-    fi
+if [[ -f "$MODE_FILE" ]]; then
+  CURRENT_MODE="$(<"$MODE_FILE")"
+  [[ "$CURRENT_MODE" == "dark" ]] && NEW_MODE="light" || NEW_MODE="dark"
 else
-    NEW_MODE="light"
+  NEW_MODE="light"
 fi
 
-echo "$NEW_MODE" > "$MODE_FILE"
-~/.config/scripts/theme-switch.sh "$NEW_MODE"
+printf '%s\n' "$NEW_MODE" > "$MODE_FILE.tmp" && mv "$MODE_FILE.tmp" "$MODE_FILE"
 
-# Optional: Send notification
-if command -v notify-send &> /dev/null; then
-    notify-send "Theme Mode" "Switched to $NEW_MODE mode" -t 2000
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
+"$SCRIPT_DIR/theme-switch.sh" "$NEW_MODE"
+if [[ "$NEW_MODE" == "dark" ]]; then
+  gsettings set org.gnome.desktop.interface gtk-theme "${GTK_THEME_DARK}"
+  gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+else
+  gsettings set org.gnome.desktop.interface gtk-theme "${GTK_THEME_LIGHT}"
+  gsettings set org.gnome.desktop.interface color-scheme prefer-light
+fi
+
+if command -v notify-send &>/dev/null; then
+  notify-send "Theme Mode" "Switched to $NEW_MODE mode" -t 2000
 fi

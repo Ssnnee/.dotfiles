@@ -41,12 +41,12 @@ output_path = '~/.config/alacritty/themes/colors.toml'
 [templates.gtk3]
 input_path = './gtk-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'
-# post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
-# post_hook = '~/.config/scripts/gtk-toggle.sh'
+# post_hook = '~/.config/scripts/gtk-reload.sh {{mode}}'
 
 [templates.gtk4]
 input_path = './gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
+# post_hook = '~/.config/scripts/gtk-reload.sh {{mode}}'
 
 [templates.qt5ct]
 input_path = './qtct-colors.conf'

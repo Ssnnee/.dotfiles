@@ -35,7 +35,10 @@ else
     print_error "GTK config does not exist anymore"
 fi
 if cp -r ~/.config/gtk-4.0/gtk.css $repo_path/.config/gtk-4.0/; then
-    print_success "GTK config copied successfully"
+  print_success "GTK config copied successfully"
 else
-    print_error "GTK config does not exist anymore"
+  print_error "GTK config does not exist anymore"
 fi
+
+# Copy opencode matugen template
+cp -r ~/.config/opencode/themes/matugen-template.json $repo_path
