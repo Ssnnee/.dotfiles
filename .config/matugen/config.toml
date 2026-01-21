@@ -76,3 +76,8 @@ input_path = '~/.coding/nvim/lua/sne/colors-template.lua'
 output_path = '~/.coding/nvim/lua/sne/colors.lua'
 post_hook = 'pkill -SIGUSR1 nvim'
 
+[templates.opencode]
+input_path = '~/.config/opencode/themes/matugen-template.json'
+output_path = '~/.config/opencode/themes/matugen.json'
+
+
