@@ -54,3 +54,27 @@ The computer have to be restart so that it can take effect
 You can also just change the `$LANG` value by `LANG=...` you might also just
 export it `export LANG=...`
 
+## Installing guest tools for gnome boxes
+Just need to install the spice tool in the guest os, and then restart the guest
+Browse to `https://www.spice-space.org/download.html`
+
+## Expo blue screen
+Usally it's just related to network. On fedora the port are blocked by default,
+so just need to open them:
+```bash
+sudo firewall-cmd --add-port=8081/tcp --permanent
+sudo firewall-cmd --reload
+```
+Ubuntu uses ufw I believe, so you can just run:
+```bash
+sudo ufw allow 8081/tcp
+```
+## Convert aab file to apk
+Need to install java and download the bundletool. Here :
+`https://github.com/google/bundletool/releases`
+Then just run the command:
+```bash
+sudo dnf install java-latest-openjdk
+java -jar bundletool.jar build-apks --bundle=your_app.aab --output=your_app.apks --mode=universal
+unzip your_app.apks -d output_folder
+```
