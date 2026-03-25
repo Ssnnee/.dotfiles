@@ -11,9 +11,9 @@ post_hook = 'pkill -SIGUSR2 waybar'
 input_path = '~/.config/rofi/rofi-colors.rasi'
 output_path = '~/.config/rofi/colors.rasi'
 
-[templates.dunst]
-input_path = "~/.config/dunst/dunstrc.template"
-output_path = "~/.config/dunst/dunstrc"
+# [templates.dunst]
+# input_path = "~/.config/dunst/dunstrc.template"
+# output_path = "~/.config/dunst/dunstrc"
 
 [templates.hyprland]
 input_path = '~/.config/hypr/hyprland-colors.conf'
@@ -29,10 +29,6 @@ post_hook = 'niri msg action load-config-file'
 input_path = '~/.config/tmux/tmux-colors.conf'
 output_path = '~/.config/tmux/generated.conf'
 post_hook = 'tmux source-file ~/.config/tmux/generated.conf'
-
-[templates.zathura]
-input_path = '~/.config/zathura/zathura-colors'
-output_path = '~/.config/zathura/zathurarc'
 
 [templates.alacritty]
 input_path = '~/.config/alacritty/colors.toml'
@@ -71,13 +67,9 @@ post_hook = 'pkill -USR1 cava'
 input_path = '~/.config/fuzzel/fuzzel-colors.ini'
 output_path = '~/.config/fuzzel/colors.ini'
 
-[templates.neovim]
-input_path = '~/.coding/nvim/lua/sne/colors-template.lua'
-output_path = '~/.coding/nvim/lua/sne/colors.lua'
-post_hook = 'pkill -SIGUSR1 nvim'
 
-[templates.opencode]
-input_path = '~/.config/opencode/themes/matugen-template.json'
-output_path = '~/.config/opencode/themes/matugen.json'
-
-
+# [templates.opencode]
+# input_path = '~/.config/opencode/themes/matugen-template.json'
+# output_path = '~/.config/opencode/themes/matugen.json'
+#
+#
