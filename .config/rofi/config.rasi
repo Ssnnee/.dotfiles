@@ -11,11 +11,11 @@ configuration {
 @theme "/dev/null"
 
 * {
-  bg: @surface;
-  bg-alt: @surface-container;
-  blue: @primary;
-  fg: @on-surface;
-  fg-alt: @on-surface-variant;
+  bg: #000000;           /* Pure black background */
+  bg-alt: #181818;       /* Deep grey for input/hover */
+  blue: #89b4fa;         /* The Blue from your Waybar clock */
+  fg: #cdd6f4;           /* Off-white text */
+  fg-alt: #6c7086;       /* Muted grey for inactive text */
   border: 0;
   margin: 0;
   padding: 0;
@@ -77,12 +77,6 @@ element selected {
   background-color: @primary-container;
   border-color: @blue;
 
-}
-
-element selected {
-  text-color: @on-primary-container;
-  background-color: @primary-container;
-  border-color: @primary;
 }
 
 element-text {
