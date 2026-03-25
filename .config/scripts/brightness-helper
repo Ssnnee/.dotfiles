@@ -1,0 +1,59 @@
+#!/usr/bin/sh
+
+if ! command -v brightnessctl >/dev/null; then
+    exit 0
+fi
+
+DEFAULT_STEP=5
+
+get_brightness() {
+    echo $(( $(brightnessctl get) * 100 / $(brightnessctl m) ))
+}
+
+CHANGE=0
+VOLUME=-1
+
+while true; do
+  case $1 in
+    -i|--increase)
+      CHANGE=$((${2:-$DEFAULT_STEP}))
+      shift;;
+    -d|--decrease)
+      CHANGE=$((-${2:-$DEFAULT_STEP}))
+      shift;;
+    --set)
+      VOLUME=$(($2))
+      shift;;
+    *)
+      break
+      ;;
+  esac
+  shift
+done
+
+if [ "$CHANGE" -ne 0 ]; then
+  if [ "$CHANGE" -gt 0 ]; then
+    brightnessctl -q set "+${CHANGE}%"
+  else
+    brightnessctl -q set "$(( -CHANGE ))%-"
+  fi
+elif [ "$VOLUME" -ge 0 ]; then
+  brightnessctl -q set "${VOLUME}%"
+fi
+
+# Display desktop notification
+if ! command -v notify-send >/dev/null; then
+  exit 0
+fi
+
+BRIGHTNESS=$(get_brightness)
+TEXT="Brightness: ${BRIGHTNESS}%"
+
+notify-send \
+  --app-name sway \
+  --expire-time 800 \
+  --hint string:x-canonical-private-synchronous:brightness \
+  --hint "int:value:$BRIGHTNESS" \
+  --transient \
+  "${TEXT}"
+

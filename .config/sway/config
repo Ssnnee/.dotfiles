@@ -179,8 +179,8 @@ bindsym $mod+r mode "resize"
 # Media keys
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-bindsym XF86MonBrightnessDown exec brightnessctl -q set 5%- && ( echo $((`brightnessctl get` * 100 / `brightnessctl m`)) > $SWAYSOCK.wob )
-bindsym XF86MonBrightnessUp exec brightnessctl -q set +5% && ( echo $((`brightnessctl get` * 100 / `brightnessctl m`)) > $SWAYSOCK.wob )
+bindsym XF86MonBrightnessUp   exec ~/.config/scripts/brightness-helper --increase 5
+bindsym XF86MonBrightnessDown exec ~/.config/scripts/brightness-helper --decrease 5
 
 bindsym XF86AudioRaiseVolume exec ~/.config/scripts/volume-helper --increase 5
 bindsym XF86AudioLowerVolume exec ~/.config/scripts/volume-helper --decrease 5
