@@ -2,8 +2,6 @@
 # This script sets up a brand new Fedora installation with custom configs
 # It aims to help set up a new Fedora installation as quickly as possible
 
-set -e
-
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -76,7 +74,7 @@ dnf_packages=(
     "ninja-build" "cmake" "gcc" "make" "gettext"
     "curl" "glibc-gconv-extra" "zathura-pdf-mupdf" "git" "zsh"
     "btop" "go" "rust" "vim" "network-manager-applet" "fzf"
-    "sxiv"
+    "sxiv" "ark"
 )
 
 flatpak_apps=(
