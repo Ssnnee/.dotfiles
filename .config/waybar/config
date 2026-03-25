@@ -4,8 +4,8 @@
   "height": 26,
   "spacing": 0,
   "modules-left": [
-    "niri/workspaces",
-    "niri/mode",
+    "sway/workspaces",
+    "sway/mode",
     "custom/media"
   ],
   "modules-center": [
@@ -22,7 +22,7 @@
     "network"
   ],
 
-  "niri/workspaces": {
+  "sway/workspaces": {
     "format": "{icon}",
     "format-icons": {
       "default": "",
@@ -40,7 +40,7 @@
     }
   },
 
-  "niri/mode": {
+  "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
   },
 
@@ -68,7 +68,7 @@
   "custom/dark-light-toggle": {
     "format": "",
     "interval": 10,
-    "on-click": "~/.config/scripts/theme-toggle.sh"
+    "on-click": "setsid bash -c '~/.config/scripts/theme-toggle.sh' &"
   },
 
   "network": {
