@@ -1,5 +1,8 @@
 font pango:iosevka nerd font regular 3
 
+# default layou
+workspace_layout tabbed
+
 #theme
 default_border pixel 1
 titlebar_border_thickness 0
@@ -250,9 +253,9 @@ bindsym $mod+Shift+p exec pcmanfm
 bindsym $mod+Shift+t exec Telegram
 bindsym $mod+Shift+b exec brave
 
-# bar {
-#   swaybar_command waybar
-# }
+bar {
+  swaybar_command waybar
+}
 
 # Auto start applacations
 exec swaymsg "workspace 1; exec st;"
