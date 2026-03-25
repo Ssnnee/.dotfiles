@@ -4,6 +4,7 @@
 set -euo pipefail
 MODE="${1:-}"  # If no arg, figure out current mode
 MODE_FILE="$HOME/.config/theme-mode"
+COLOR_TO_PICK=$(( RANDOM % 4 ))
 if [[ -z "$MODE" ]]; then
   if [[ -f "$MODE_FILE" ]]; then
     CURRENT_MODE=$(<"$MODE_FILE")
@@ -27,5 +28,5 @@ echo "[$(date '+%F %T')] Generating color scheme"
 echo "Mode      : $MODE"
 echo "Wallpaper : $WALLPAPER"
 echo "$MODE" > "$MODE_FILE"
-matugen image "$WALLPAPER" --mode "$MODE"
+matugen image "$WALLPAPER" --mode "$MODE" --source-color-index "$COLOR_TO_PICK"
 echo "Color scheme generated successfully"
