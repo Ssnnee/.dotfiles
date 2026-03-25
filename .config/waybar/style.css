@@ -28,17 +28,17 @@ window#waybar {
 
 #workspaces button.focused {
     color: @primary;
-    /* background: alpha(@primary_container, 0.3); */
+    background: alpha(@primary_container, 0.3);
 }
 
 #workspaces button:hover {
-    /* background: alpha(@primary, 0.12); */
+    background: alpha(@primary, 0.12);
     color: @on_primary_container;
 }
 
 #workspaces button.urgent {
     color: @error;
-    /* background: alpha(@error_container, 0.2); */
+    background: alpha(@error_container, 0.2);
 }
 
 /* Modules */
