@@ -78,3 +78,11 @@ sudo dnf install java-latest-openjdk
 java -jar bundletool.jar build-apks --bundle=your_app.aab --output=your_app.apks --mode=universal
 unzip your_app.apks -d output_folder
 ```
+
+## Kde connect
+Sometimes it does not show any devices. Need to open certain ports on the fire-
+wall side
+```bash
+sudo firewall-cmd --permanent --add-service=kdeconnect
+sudo firewall-cmd --reload
+```
