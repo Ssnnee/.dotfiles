@@ -86,3 +86,11 @@ wall side
 sudo firewall-cmd --permanent --add-service=kdeconnect
 sudo firewall-cmd --reload
 ```
+
+## How to get deps packages for a project
+Basically often you want to compile/build a project, on your own but you don't
+often have the deps packages needed to do so. If your using fedora, you
+can just do :
+```bash
+dnf builddep <package_name>
+```
