@@ -94,3 +94,11 @@ can just do :
 ```bash
 dnf builddep <package_name>
 ```
+
+## Install Canon i-sensys mf4410 printer driver
+Just need to go to the url below and download the tar file.
+`https://asia.canon/en/support/0100924010`
+Then extract the file and run the install script with pkexec
+```
+pkexec ./install.sh
+```
