@@ -74,7 +74,7 @@ dnf_packages=(
     "ninja-build" "cmake" "gcc" "make" "gettext"
     "curl" "glibc-gconv-extra" "zathura-pdf-mupdf" "git" "zsh"
     "btop" "go" "rust" "vim" "network-manager-applet" "fzf"
-    "sxiv" "ark"
+    "sxiv" "ark" "niri" "ripgrep"
 )
 
 flatpak_apps=(
