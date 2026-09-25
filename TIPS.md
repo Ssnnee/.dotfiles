@@ -102,3 +102,7 @@ Then extract the file and run the install script with pkexec
 ```
 pkexec ./install.sh
 ```
+## Third party (terra store)
+```
+sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+```
