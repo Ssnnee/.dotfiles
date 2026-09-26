@@ -104,16 +104,32 @@ workspace "1"
 workspace "2"
 workspace "3"
 workspace "4"
+workspace "5"
+
+// Set open-maximized to true for all windows.
+window-rule {
+    open-maximized true
+    geometry-corner-radius 0
+    clip-to-geometry true
+}
+
+// Then, for Alacritty, set open-maximized back to false.
+window-rule {
+    match app-id=r#"Alacritty|St"#
+    open-maximized false
+    opacity 1.0
+}
+
+// Make inactive windows semitransparent.
+window-rule {
+    match is-active=false
+    opacity 0.95
+}
 
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     match app-id=r#"zen$"# title="^Picture-in-Picture$"
     open-floating true
-}
-
-window-rule {
-    geometry-corner-radius 8
-    clip-to-geometry true
 }
 
 debug {
@@ -124,12 +140,23 @@ window-rule {
     match app-id="zen"
     match title="Zen"
     open-on-workspace "2"
-    open-maximized true
 }
+
 window-rule {
     match app-id="org.telegram.desktop"
     open-on-workspace "4"
-    open-maximized true
+}
+
+
+window-rule {
+  exclude app-id=r#"org.telegram.desktop|zen|firefox"#
+  opacity 0.9
+  background-effect {
+    xray true
+    blur true
+    noise 0.05
+    saturation 3
+  }
 }
 
 // Set the overview wallpaper on the backdrop.

@@ -27,8 +27,8 @@ set $menu rof  | dmenu_path | dmenu | xargs swaymsg exec --
 
 # output * bg /home/sne/Pictures/wallpapers/wp3126191-adele-2018-wallpapers.jpg fill
 
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 1
+default_floating_border pixel 1
 
 # Change the keyboard layout
 input * {
