@@ -3,7 +3,7 @@ input {
     xkb {
       layout "fr"
       variant "optimot_ansi_18"
-      options "caps:escape"
+      options "caps:swapescape"
     }
     repeat-delay 200
     repeat-rate 90

@@ -37,7 +37,7 @@ input * {
 # xkb_options "caps:ctrl_modifier"
 }
 
-input * xkb_options "caps:escape"
+input * xkb_options "caps:swapescape"
 input * tap enabled
 
 input type:keyboard {
