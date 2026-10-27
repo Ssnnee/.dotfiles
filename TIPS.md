@@ -106,3 +106,22 @@ pkexec ./install.sh
 ```
 sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 ```
+
+## Fixing niri file picker
+Create a niri-portal.conf
+```bash
+mkdir ~/.config/xdg-desktop-portal && touch ~/.config/xdg-desktop-portal/niri-portals.conf
+```
+Then copy this :
+```text
+[preferred]
+org.freedesktop.impl.portal.FileChooser=gtk;
+org.freedesktop.impl.portal.ScreenCast=gnome;
+org.freedesktop.impl.portal.Screenshot=gnome;
+org.freedesktop.impl.portal.RemoteDesktop=gnome;
+```
+
+## Installing french lang pack
+```
+sudo dnf install libreoffice-langpack-fr libreoffice-help-fr hunspell-fr
+```
